@@ -61,12 +61,30 @@ Formula requirements:
 
 ### 4. Validate Formula
 
-Run in sequence:
+Ensure file permissions are correct:
+```bash
+chmod a+r Formula/<name>.rb
+```
+
+Run style check:
 ```bash
 brew style Formula/<name>.rb
-brew audit --strict Formula/<name>.rb
-brew install Formula/<name>.rb
-brew test Formula/<name>.rb
+```
+
+For local install/test of tapped formulas, copy to the actual tap location:
+```bash
+TAP_PATH=$(brew --repo shhac/tap)
+cp Formula/<name>.rb "$TAP_PATH/Formula/"
+brew install shhac/tap/<name>
+brew test shhac/tap/<name>
+```
+
+Note: `brew audit --strict` requires the formula to be published, so skip for new formulas.
+
+After testing, clean up:
+```bash
+rm "$TAP_PATH/Formula/<name>.rb"
+brew uninstall shhac/tap/<name>
 ```
 
 Fix any issues before proceeding.
@@ -114,3 +132,19 @@ Run `brew style --fix Formula/<name>.rb` for auto-fixable issues.
 - Verify binary runs: `./path/to/binary --version`
 - Check test regex matches actual output format
 - Use `--seed` or similar flags for deterministic test output
+- **stderr vs stdout**: Some CLIs output `--version` and `--help` to stderr. Use `2>&1` in test assertions:
+  ```ruby
+  assert_match "version", shell_output("#{bin}/tool --version 2>&1")
+  ```
+
+### Shell Integration
+For tools requiring shell aliases/functions, use `def caveats` to inform users (Homebrew convention is NOT to auto-modify shell configs):
+```ruby
+def caveats
+  <<~EOS
+    To enable shell integration, add to your shell config:
+
+      eval "$(tool-name alias cmd)"
+  EOS
+end
+```
