@@ -1,5 +1,7 @@
 ---
-description: Add or update Homebrew formulas in this tap. Use for creating new formulas, updating versions, or fixing formula issues.
+name: homebrew-formula
+description: This skill should be used when adding or updating Homebrew formulas in this tap. Invoked for creating new formulas, updating versions, fixing formula issues, or managing multi-platform binary distributions.
+allowed-tools: Read, Write, Edit, Bash, Grep, Glob
 ---
 
 # Homebrew Formula Management
@@ -48,7 +50,7 @@ curl -sL "<url>" -o /tmp/archive.tar.gz && tar -tzf /tmp/archive.tar.gz | head -
 
 ### 3. Create Formula File
 
-Create `Formula/<name>.rb` using patterns from `homebrew-formula-reference.md`.
+Create `Formula/<name>.rb` using patterns from `references/formula-reference.md`.
 
 Formula requirements:
 - Class name: CamelCase version of tool name
