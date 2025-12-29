@@ -1,0 +1,18 @@
+# AI
+CLAUDE.local.md
+.ai-cache/
+.claude/*
+!.claude/commands/
+!.claude/skills/
+!.claude/agents/
+
+# macOS
+.DS_Store
+
+# Editors
+*.swp
+*.swo
+*~
+
+# Homebrew
+*.bottle.tar.gz
