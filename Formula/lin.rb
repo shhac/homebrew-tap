@@ -1,28 +1,28 @@
 class Lin < Formula
   desc "Linear CLI for humans and LLMs"
   homepage "https://github.com/shhac/lin"
-  version "0.3.7"
+  version "0.4.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/lin/releases/download/v0.3.7/lin-darwin-arm64.tar.gz"
-      sha256 "56c8b084ee69cf8bbe3d7e181ffb8a2de9dc44448393731cd48bab7dfcd6b26d"
+      url "https://github.com/shhac/lin/releases/download/v0.4.0/lin-darwin-arm64.tar.gz"
+      sha256 "0a0b3d1094ec47165afeb398f45c15be1da726b2576d539691e53fb0d6928298"
     end
     on_intel do
-      url "https://github.com/shhac/lin/releases/download/v0.3.7/lin-darwin-x64.tar.gz"
-      sha256 "093fa672b7193fb2181512969a061248e8e4db7f73b47ace84d7185afd6ad92f"
+      url "https://github.com/shhac/lin/releases/download/v0.4.0/lin-darwin-x64.tar.gz"
+      sha256 "51af2c03a0c3e76fd4d2d8e27628a5917d871f931ff5e319fc0b122f6d2c25b6"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/lin/releases/download/v0.3.7/lin-linux-arm64.tar.gz"
-      sha256 "e8aa6c64e1fc660510da18647d051799595aee3444e039b1d3a3d3f10ced0eed"
+      url "https://github.com/shhac/lin/releases/download/v0.4.0/lin-linux-arm64.tar.gz"
+      sha256 "1aa4af1293d439b360476489f1a31a31c3bb11542e7a473d8a050c9f812986ea"
     end
     on_intel do
-      url "https://github.com/shhac/lin/releases/download/v0.3.7/lin-linux-x64.tar.gz"
-      sha256 "3a8d352bf8b7fe75010fd7de75a5a168f864f6e9a80b0005992fc550d59ab74f"
+      url "https://github.com/shhac/lin/releases/download/v0.4.0/lin-linux-x64.tar.gz"
+      sha256 "3da59fcce4271e553cfaf543d69c717a2592e3005c95001635204172794d8ad1"
     end
   end
 
@@ -31,7 +31,7 @@ class Lin < Formula
   end
 
   test do
-    assert_match "0.3.7", shell_output("#{bin}/lin --version")
+    assert_match "0.4.0", shell_output("#{bin}/lin --version")
     assert_match "Linear CLI", shell_output("#{bin}/lin --help")
   end
 end
