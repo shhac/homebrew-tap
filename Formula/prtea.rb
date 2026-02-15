@@ -1,28 +1,28 @@
 class Prtea < Formula
   desc "A TUI for reviewing GitHub pull requests"
   homepage "https://github.com/shhac/prtea"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/prtea/releases/download/v0.1.0/prtea-darwin-arm64.tar.gz"
-      sha256 "254b2098af5fe28fbbf01a1d468db24c23ae0a4c44551c85171d32daee66e322"
+      url "https://github.com/shhac/prtea/releases/download/v0.1.1/prtea-darwin-arm64.tar.gz"
+      sha256 "0d57bd44c1dc54afe7425f0e62d4a00392b67ebc8f1395611e19f47cbf7a8fd8"
     end
     on_intel do
-      url "https://github.com/shhac/prtea/releases/download/v0.1.0/prtea-darwin-amd64.tar.gz"
-      sha256 "da00ef2f6edf570bd759af1ce75ea59bbca233710ed5227355a8f2b7363fae47"
+      url "https://github.com/shhac/prtea/releases/download/v0.1.1/prtea-darwin-amd64.tar.gz"
+      sha256 "f1872b59770f2ef51e63cc87a226485eb683ca0f7708f4ae4b5112bd755102b7"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/prtea/releases/download/v0.1.0/prtea-linux-arm64.tar.gz"
-      sha256 "f77e2c9c1947b76fe83242fde281b2300c810347c1f1c51c6e57631e95a8d217"
+      url "https://github.com/shhac/prtea/releases/download/v0.1.1/prtea-linux-arm64.tar.gz"
+      sha256 "1e8d880c39841abfa849703de6d5c075fe32f717596a620718861bdd7a51bcb0"
     end
     on_intel do
-      url "https://github.com/shhac/prtea/releases/download/v0.1.0/prtea-linux-amd64.tar.gz"
-      sha256 "dab3e2b4a2cb1aff089342a6f9d37575ec7103858b30984023ab882aa3838c6c"
+      url "https://github.com/shhac/prtea/releases/download/v0.1.1/prtea-linux-amd64.tar.gz"
+      sha256 "afe2a391f6a3397d646bdbc9c35c9e778ef433b0296b027c06e3c98afa90cf5f"
     end
   end
 
@@ -31,6 +31,6 @@ class Prtea < Formula
   end
 
   test do
-    assert_match "0.1.0", shell_output("#{bin}/prtea --version")
+    assert_match "0.1.1", shell_output("#{bin}/prtea --version")
   end
 end
