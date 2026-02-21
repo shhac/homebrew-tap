@@ -1,28 +1,28 @@
 class GitWt < Formula
   desc "Fast CLI tool for managing git worktrees with enhanced features"
   homepage "https://github.com/shhac/git-wt"
-  version "0.4.4"
+  version "0.5.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/git-wt/releases/download/v0.4.4/git-wt-aarch64-macos.tar.gz"
-      sha256 "2090fd306d67db7b0a70babebbeda6c7a8c361ba89d1aded3cefc71ae4887a8b"
+      url "https://github.com/shhac/git-wt/releases/download/v0.5.0/git-wt-aarch64-macos.tar.gz"
+      sha256 "9c1485d85273b796671481c573d2aa65fbbaa391194c484f4fefd7c8da6d775c"
     end
     on_intel do
-      url "https://github.com/shhac/git-wt/releases/download/v0.4.4/git-wt-x86_64-macos.tar.gz"
-      sha256 "0e833574fe0081ec0e4bf1d936fa398db8353a8672387336ff4c2e2d33148669"
+      url "https://github.com/shhac/git-wt/releases/download/v0.5.0/git-wt-x86_64-macos.tar.gz"
+      sha256 "281f8cbb260b544005b25b5aad138ae51431e4fad4c411723a13c3e0bb09063b"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/git-wt/releases/download/v0.4.4/git-wt-aarch64-linux.tar.gz"
-      sha256 "3e9e8db464ff9343c59e755d43c7909064a1e7718e1c5e558138bb08c683a517"
+      url "https://github.com/shhac/git-wt/releases/download/v0.5.0/git-wt-aarch64-linux.tar.gz"
+      sha256 "90b0981646954de3e960e519fe60f1e2463f92938e6041e42765b536e205cbc6"
     end
     on_intel do
-      url "https://github.com/shhac/git-wt/releases/download/v0.4.4/git-wt-x86_64-linux.tar.gz"
-      sha256 "453a1374dbd543c52fe06c2c7dc165ac1fd2a51cff84b9d40adb24dccb699d30"
+      url "https://github.com/shhac/git-wt/releases/download/v0.5.0/git-wt-x86_64-linux.tar.gz"
+      sha256 "3fd7d781c5aafe4dcdaaf4e2c6cd2ba365b4ff7392b890021c28e81002cd16e2"
     end
   end
 
@@ -47,8 +47,7 @@ class GitWt < Formula
   end
 
   test do
-    # --version and --help output to stderr
-    assert_match "git-wt version 0.4.4", shell_output("#{bin}/git-wt --version 2>&1")
-    assert_match "worktree", shell_output("#{bin}/git-wt --help 2>&1")
+    assert_match "git-wt version 0.5.0", shell_output("#{bin}/git-wt --version")
+    assert_match "worktree", shell_output("#{bin}/git-wt --help")
   end
 end
