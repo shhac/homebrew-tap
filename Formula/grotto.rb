@@ -1,17 +1,17 @@
 class Grotto < Formula
   desc "A permissive, user-friendly gRPC client"
   homepage "https://github.com/shhac/grotto"
-  version "0.7.0"
+  version "0.7.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/grotto/releases/download/v0.7.0/grotto_0.7.0_darwin_arm64.tar.gz"
-      sha256 "b1a4e323fd70ca1afd3635daae9133884c0028b36cdccb698d9c52e78fca1a63"
+      url "https://github.com/shhac/grotto/releases/download/v0.7.1/grotto_0.7.1_darwin_arm64.tar.gz"
+      sha256 "17db0a65fea366f988baf96775fff0b5691b2000f5bc11ba189ecf8b95e7f554"
     end
     on_intel do
-      url "https://github.com/shhac/grotto/releases/download/v0.7.0/grotto_0.7.0_darwin_amd64.tar.gz"
-      sha256 "83dd7d6dc0cc35f88caf11b99e7e2b97565165c909253fe0cc3e44faddd2bf25"
+      url "https://github.com/shhac/grotto/releases/download/v0.7.1/grotto_0.7.1_darwin_amd64.tar.gz"
+      sha256 "8c984f0bf7ddf777135795d31184fdfccd0927f79dcf5d5ee19cb3c46b0742a3"
     end
   end
 
