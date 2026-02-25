@@ -1,13 +1,13 @@
 cask "grotto" do
-  version "0.7.1"
+  version "0.8.0"
 
   on_arm do
     url "https://github.com/shhac/grotto/releases/download/v#{version}/Grotto_#{version}_darwin_arm64.zip"
-    sha256 "PLACEHOLDER_ARM64"
+    sha256 "031d8c05b7fb2827636e4b45ba8ad577cd9d8dd9556805a997339b829122201c"
   end
   on_intel do
     url "https://github.com/shhac/grotto/releases/download/v#{version}/Grotto_#{version}_darwin_amd64.zip"
-    sha256 "PLACEHOLDER_AMD64"
+    sha256 "a3ff85af3ee963a15f089451448b34252e26c260d5f297b7299c74144e39745d"
   end
 
   name "Grotto"
