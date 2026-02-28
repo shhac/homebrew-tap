@@ -28,6 +28,7 @@ class GitHunk < Formula
 
   def install
     bin.install "git-hunk"
+    man1.install "git-hunk.1" if File.exist? "git-hunk.1"
   end
 
   test do
