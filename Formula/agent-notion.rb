@@ -1,28 +1,28 @@
 class AgentNotion < Formula
   desc "Notion CLI for humans and LLMs"
   homepage "https://github.com/shhac/agent-notion"
-  version "0.2.1"
+  version "0.2.2"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-notion/releases/download/v0.2.1/agent-notion-darwin-arm64.tar.gz"
-      sha256 "0b946473320619d9d5c24ca277775a19014cf215a68025a31a74fdc857fe93cd"
+      url "https://github.com/shhac/agent-notion/releases/download/v0.2.2/agent-notion-darwin-arm64.tar.gz"
+      sha256 "05305dd393e99bb29e831e7144b1329b1f860180889478213906439d1484622a"
     end
     on_intel do
-      url "https://github.com/shhac/agent-notion/releases/download/v0.2.1/agent-notion-darwin-x64.tar.gz"
-      sha256 "f682ead1fa39b17962cc13e7787e0bfe43ff8dbeda8659d090ce15a9e80ce52e"
+      url "https://github.com/shhac/agent-notion/releases/download/v0.2.2/agent-notion-darwin-x64.tar.gz"
+      sha256 "0535543c52cb3dc26774e172bb614dd03562d0a8002b5aa0c56baf5ec5223169"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-notion/releases/download/v0.2.1/agent-notion-linux-arm64.tar.gz"
-      sha256 "ad9890b01b8b9f2427c52355bda8dc57c71bb66117641cf8bea6a5e4d8485a3c"
+      url "https://github.com/shhac/agent-notion/releases/download/v0.2.2/agent-notion-linux-arm64.tar.gz"
+      sha256 "13b8f896039301f136a702a317e5e0132b9985516f8e989b2b9d1fafcb2f025b"
     end
     on_intel do
-      url "https://github.com/shhac/agent-notion/releases/download/v0.2.1/agent-notion-linux-x64.tar.gz"
-      sha256 "f59921b40708cc0b5d9ad7b8b6ab8b83c5036f6fb785878e4e361023cd42b909"
+      url "https://github.com/shhac/agent-notion/releases/download/v0.2.2/agent-notion-linux-x64.tar.gz"
+      sha256 "43cda1958ea91c215b7b72fd02f5a1b1c1f34518883bf23590afad362bd2d751"
     end
   end
 
@@ -31,7 +31,7 @@ class AgentNotion < Formula
   end
 
   test do
-    assert_match "0.2.1", shell_output("#{bin}/agent-notion --version")
+    assert_match "0.2.2", shell_output("#{bin}/agent-notion --version")
     assert_match "Notion CLI", shell_output("#{bin}/agent-notion --help")
   end
 end
