@@ -1,28 +1,28 @@
 class GitHunk < Formula
   desc "Non-interactive CLI for staging git diff hunks by content hash"
   homepage "https://github.com/shhac/git-hunk"
-  version "0.9.0"
+  version "0.9.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/git-hunk/releases/download/v0.9.0/git-hunk-aarch64-macos.tar.gz"
-      sha256 "79cd1c2e1a5d1d890e6f758416d956b4072be1e410c6c15268663fbe49d9d618"
+      url "https://github.com/shhac/git-hunk/releases/download/v0.9.1/git-hunk-aarch64-macos.tar.gz"
+      sha256 "81a24b0efc57d8f6d16f025ebaa19ff1d49e3ec31e35735c43230fd93b821b8a"
     end
     on_intel do
-      url "https://github.com/shhac/git-hunk/releases/download/v0.9.0/git-hunk-x86_64-macos.tar.gz"
-      sha256 "f4c40aeccf5569e3b330fdca9deb3d0916a3de29af3d914e3cd717a151ba8fd9"
+      url "https://github.com/shhac/git-hunk/releases/download/v0.9.1/git-hunk-x86_64-macos.tar.gz"
+      sha256 "f29e0d62bf8016ff610081731a3a011998443a16f0a491a3b9cda39d728e004d"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/git-hunk/releases/download/v0.9.0/git-hunk-aarch64-linux.tar.gz"
-      sha256 "a7314566061b8399fd135773a216ae08633a8728d6887ca19878cb8d2470fa13"
+      url "https://github.com/shhac/git-hunk/releases/download/v0.9.1/git-hunk-aarch64-linux.tar.gz"
+      sha256 "136ce5fdce951e5b511db582d442944884400d35137224fde560758298e9c18b"
     end
     on_intel do
-      url "https://github.com/shhac/git-hunk/releases/download/v0.9.0/git-hunk-x86_64-linux.tar.gz"
-      sha256 "ad0bf8ccb5ae0fbccd204790539e8e15bb4673ac69971f44e920f8cc979a4eb0"
+      url "https://github.com/shhac/git-hunk/releases/download/v0.9.1/git-hunk-x86_64-linux.tar.gz"
+      sha256 "659c477cddaa61e4398267e39fa23ae86e8331b072ce76b7e4d3968374cf6197"
     end
   end
 
@@ -32,6 +32,6 @@ class GitHunk < Formula
   end
 
   test do
-    assert_match "git-hunk 0.9.0", shell_output("#{bin}/git-hunk --version")
+    assert_match "git-hunk 0.9.1", shell_output("#{bin}/git-hunk --version")
   end
 end
