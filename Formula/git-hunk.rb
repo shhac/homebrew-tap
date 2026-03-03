@@ -1,28 +1,28 @@
 class GitHunk < Formula
   desc "Non-interactive CLI for staging git diff hunks by content hash"
   homepage "https://github.com/shhac/git-hunk"
-  version "0.10.0"
+  version "0.10.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/git-hunk/releases/download/v0.10.0/git-hunk-aarch64-macos.tar.gz"
-      sha256 "0bbb63f05130703c183b467df9382dd7992777957098409ca0e48a1249e9601f"
+      url "https://github.com/shhac/git-hunk/releases/download/v0.10.1/git-hunk-aarch64-macos.tar.gz"
+      sha256 "8d7ac338370e766158d6240e337ecfd9ebbb0f4b2261beffc4cfa2ec421c4961"
     end
     on_intel do
-      url "https://github.com/shhac/git-hunk/releases/download/v0.10.0/git-hunk-x86_64-macos.tar.gz"
-      sha256 "08cf8d2139d68202b054337dc13ab518cb8059654e6b26ffaa016f3ba16aa38b"
+      url "https://github.com/shhac/git-hunk/releases/download/v0.10.1/git-hunk-x86_64-macos.tar.gz"
+      sha256 "76fd74799bc440910bf3adb5b6e25ab45c353ff4d953080e218b71c060435d7d"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/git-hunk/releases/download/v0.10.0/git-hunk-aarch64-linux.tar.gz"
-      sha256 "d86fc8006f1e137f2727bfd4ac376b31a3e47090344e8c532edd7be882c49ea8"
+      url "https://github.com/shhac/git-hunk/releases/download/v0.10.1/git-hunk-aarch64-linux.tar.gz"
+      sha256 "4f74aac1671f58add715766ddddccab245761a8f79b938116ae3abdb10177250"
     end
     on_intel do
-      url "https://github.com/shhac/git-hunk/releases/download/v0.10.0/git-hunk-x86_64-linux.tar.gz"
-      sha256 "b69df207b31d61dd65666b3404af95d3bf4c284d07cd8f692e179e4ada6f5663"
+      url "https://github.com/shhac/git-hunk/releases/download/v0.10.1/git-hunk-x86_64-linux.tar.gz"
+      sha256 "28350e032afad1b323088662984dd997885b92c045cc1787f2f6e09d9d6c607b"
     end
   end
 
@@ -32,6 +32,6 @@ class GitHunk < Formula
   end
 
   test do
-    assert_match "git-hunk 0.10.0", shell_output("#{bin}/git-hunk --version")
+    assert_match "git-hunk 0.10.1", shell_output("#{bin}/git-hunk --version")
   end
 end
