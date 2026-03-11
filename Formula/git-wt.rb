@@ -1,28 +1,28 @@
 class GitWt < Formula
   desc "Fast CLI tool for managing git worktrees with enhanced features"
   homepage "https://github.com/shhac/git-wt"
-  version "0.6.1"
+  version "0.6.2"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/git-wt/releases/download/v0.6.1/git-wt-aarch64-macos.tar.gz"
-      sha256 "05ccf0ad0276285c4bc236b1b5cb9bf94e7ceeaf5d6fe1f9d06c91b3b64c2e8f"
+      url "https://github.com/shhac/git-wt/releases/download/v0.6.2/git-wt-aarch64-macos.tar.gz"
+      sha256 "46579cb23af35c7cba87adedea4b8ed7e92d9d980e9454433a4b8b4ab03d34ed"
     end
     on_intel do
-      url "https://github.com/shhac/git-wt/releases/download/v0.6.1/git-wt-x86_64-macos.tar.gz"
-      sha256 "a1c7232d987767a67d30ce8114e908baa06c9a906f9e191e4c59bcfedfd8264f"
+      url "https://github.com/shhac/git-wt/releases/download/v0.6.2/git-wt-x86_64-macos.tar.gz"
+      sha256 "38a1be19611cc880f9b8ccfdd89b99e8ff45d5b5fb2847af3ff6fc4210b23ca6"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/git-wt/releases/download/v0.6.1/git-wt-aarch64-linux.tar.gz"
-      sha256 "4c5ad5373fa3bcc4a247fe4ecb25049c6cf1602d6111730c2c0a82f206bee49d"
+      url "https://github.com/shhac/git-wt/releases/download/v0.6.2/git-wt-aarch64-linux.tar.gz"
+      sha256 "43ee9abd28cd4b465879cbcd9d0c4c2b3309438fe8d5febe4de0496efc7b534d"
     end
     on_intel do
-      url "https://github.com/shhac/git-wt/releases/download/v0.6.1/git-wt-x86_64-linux.tar.gz"
-      sha256 "b463020266fbbed50f05a4fd18a3000897e3f2454cb1a711093bfec97c8073c7"
+      url "https://github.com/shhac/git-wt/releases/download/v0.6.2/git-wt-x86_64-linux.tar.gz"
+      sha256 "f4a4f61e821224a410c8feff64abd814411a65dfd51c03e44e514b566ad3d8bb"
     end
   end
 
@@ -49,7 +49,7 @@ class GitWt < Formula
   end
 
   test do
-    assert_match "git-wt version 0.6.1", shell_output("#{bin}/git-wt --version")
+    assert_match "git-wt version 0.6.2", shell_output("#{bin}/git-wt --version")
     assert_match "worktree", shell_output("#{bin}/git-wt --help")
   end
 end
