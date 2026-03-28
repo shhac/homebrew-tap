@@ -1,28 +1,28 @@
 class AgentSql < Formula
   desc "Read-only SQL CLI for AI agents"
   homepage "https://github.com/shhac/agent-sql"
-  version "0.3.1"
+  version "0.4.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-sql/releases/download/v0.3.1/agent-sql-darwin-arm64.tar.gz"
-      sha256 "5db1a3da9e66b5ee73386a06c74275e83937b97379b12e3ad3808712f3b4d575"
+      url "https://github.com/shhac/agent-sql/releases/download/v0.4.0/agent-sql-darwin-arm64.tar.gz"
+      sha256 "9ec824a9fafbed9b5fc3511d983f21a539917bcca66a9ccd1b52918d898e6fc9"
     end
     on_intel do
-      url "https://github.com/shhac/agent-sql/releases/download/v0.3.1/agent-sql-darwin-x64.tar.gz"
-      sha256 "5016c214cd799e39e76ecb1623d005f6837977646e6353dee0a13d7d107e9aba"
+      url "https://github.com/shhac/agent-sql/releases/download/v0.4.0/agent-sql-darwin-x64.tar.gz"
+      sha256 "7620f0a7e5c11a7c030ab1fb828bc9919d20bcad4f0498fde2bf796773e0d920"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-sql/releases/download/v0.3.1/agent-sql-linux-arm64.tar.gz"
-      sha256 "e739ebcc1e3c0821f157349b0068e6081eb26194ed5ec406952907656617c065"
+      url "https://github.com/shhac/agent-sql/releases/download/v0.4.0/agent-sql-linux-arm64.tar.gz"
+      sha256 "90b9a3aca0a93b3b0c407cbf44efc0dfb7294a018de82494baabc5804a80ac91"
     end
     on_intel do
-      url "https://github.com/shhac/agent-sql/releases/download/v0.3.1/agent-sql-linux-x64.tar.gz"
-      sha256 "df5180ae147c8a67fefe8dd5f1eac87e4c3c04902b960935deccf6b53b379c79"
+      url "https://github.com/shhac/agent-sql/releases/download/v0.4.0/agent-sql-linux-x64.tar.gz"
+      sha256 "ba6e13468a158c691ac2e2829465dc2e90119d54a8b18865e5196c6d6243ba5a"
     end
   end
 
@@ -31,7 +31,7 @@ class AgentSql < Formula
   end
 
   test do
-    assert_match "0.3.1", shell_output("#{bin}/agent-sql --version")
+    assert_match "0.4.0", shell_output("#{bin}/agent-sql --version")
     assert_match "SQL CLI", shell_output("#{bin}/agent-sql --help")
   end
 end
