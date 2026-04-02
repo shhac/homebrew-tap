@@ -1,28 +1,28 @@
 class AgentDd < Formula
   desc "Datadog triage CLI for AI agents"
   homepage "https://github.com/shhac/agent-dd"
-  version "0.3.1"
+  version "0.3.2"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-dd/releases/download/v0.3.1/agent-dd-darwin-arm64.tar.gz"
-      sha256 "379d00a40f26b076f3a073e526e07cccf66a3a996b60c560f3b70325a0f97fb9"
+      url "https://github.com/shhac/agent-dd/releases/download/v0.3.2/agent-dd-darwin-arm64.tar.gz"
+      sha256 "3d73b82b18cb4dfd154e3c223eed6a2bcec92cd7bd3c45915eba55f216510a29"
     end
     on_intel do
-      url "https://github.com/shhac/agent-dd/releases/download/v0.3.1/agent-dd-darwin-amd64.tar.gz"
-      sha256 "20800298225e89e06077e64c7d775f95d7689fb17f2ad310a5941dfa4918fcd8"
+      url "https://github.com/shhac/agent-dd/releases/download/v0.3.2/agent-dd-darwin-amd64.tar.gz"
+      sha256 "4b4a291c5a1bccc234a1c54cfe7deb38d7a28aa49ee1fd0dbe4c4385bd98f23c"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-dd/releases/download/v0.3.1/agent-dd-linux-arm64.tar.gz"
-      sha256 "409f5d4344e932833674ff72e558d7618ac640499442ea1250e02b406022020c"
+      url "https://github.com/shhac/agent-dd/releases/download/v0.3.2/agent-dd-linux-arm64.tar.gz"
+      sha256 "ed15f16f6a05557cde0b62747987c52f0b49617a6134cc6fb7e72ffb6dd69eda"
     end
     on_intel do
-      url "https://github.com/shhac/agent-dd/releases/download/v0.3.1/agent-dd-linux-amd64.tar.gz"
-      sha256 "50e3409eb10fa674b2c462a07eee3b40bbbc09ba773e4a494da2ecd3d8789d2d"
+      url "https://github.com/shhac/agent-dd/releases/download/v0.3.2/agent-dd-linux-amd64.tar.gz"
+      sha256 "cb1013acdac541ed7a03d13a11ce3aedc22b252e70fdef6f78949658a13c2a0a"
     end
   end
 
@@ -31,7 +31,7 @@ class AgentDd < Formula
   end
 
   test do
-    assert_match "0.3.1", shell_output("#{bin}/agent-dd version")
+    assert_match "0.3.2", shell_output("#{bin}/agent-dd version")
     assert_match "Datadog", shell_output("#{bin}/agent-dd --help")
   end
 end
