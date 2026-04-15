@@ -7,11 +7,11 @@ class Lin < Formula
   on_macos do
     on_arm do
       url "https://github.com/shhac/lin/releases/download/v0.12.0/lin-darwin-arm64.tar.gz"
-      sha256 "c79dbd0db767ddc8c5f1e142e17e2c0684037cbc922200a722f14632e657aaf8"
+      sha256 "6bc639c186274a8c4997f7cc8ac7b1c410a0e2bfecbd4b4fd20d3f3f06093408"
     end
     on_intel do
       url "https://github.com/shhac/lin/releases/download/v0.12.0/lin-darwin-x64.tar.gz"
-      sha256 "b94efe1397b238e42f96a68bfbacaa802728a34a6320024f340f919783b14f1c"
+      sha256 "fe1925833711eb86554adbd67ac9674e6ec6d59ddb75ec666396cc9fadcae521"
     end
   end
 
