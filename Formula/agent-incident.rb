@@ -1,28 +1,28 @@
 class AgentIncident < Formula
   desc "incident.io triage CLI for AI agents"
   homepage "https://github.com/shhac/agent-incident"
-  version "0.3.1"
+  version "0.4.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-incident/releases/download/v0.3.1/agent-incident-darwin-arm64.tar.gz"
-      sha256 "5bb1b9c8af0c47714791f7fcde99c1744e418910ed2ef3b528d92f6a8cd2334b"
+      url "https://github.com/shhac/agent-incident/releases/download/v0.4.0/agent-incident-darwin-arm64.tar.gz"
+      sha256 "a68d74e08a9021fa204e4519b5db8fc9841b959f9cd947fc3b615a564ed20922"
     end
     on_intel do
-      url "https://github.com/shhac/agent-incident/releases/download/v0.3.1/agent-incident-darwin-amd64.tar.gz"
-      sha256 "f9f94430410dd9d11d9ef22c13ced485ef0ea81da91c7a7d7e051598df564504"
+      url "https://github.com/shhac/agent-incident/releases/download/v0.4.0/agent-incident-darwin-amd64.tar.gz"
+      sha256 "c8f62ecbcc4894efb5da0a6659a0d13266be91b6f8c6adafadc614b672603b13"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-incident/releases/download/v0.3.1/agent-incident-linux-arm64.tar.gz"
-      sha256 "6094849f3dcabf215f83223e01ca0b03bbe63eaeabb8708bf92865ac9cf3d44b"
+      url "https://github.com/shhac/agent-incident/releases/download/v0.4.0/agent-incident-linux-arm64.tar.gz"
+      sha256 "bc7f6bfd8f1ec225afa8eda1ced99e1c47debdd21abf46bbfc4e1c3bcf25f5f2"
     end
     on_intel do
-      url "https://github.com/shhac/agent-incident/releases/download/v0.3.1/agent-incident-linux-amd64.tar.gz"
-      sha256 "b8bdace86cf35c934aec46540e02d5db071d3c3cd65c174a648721673d48e147"
+      url "https://github.com/shhac/agent-incident/releases/download/v0.4.0/agent-incident-linux-amd64.tar.gz"
+      sha256 "eba5f4dda446330e13b74102da1384a1fd29d7a9036634d76ee82cdcb509ebfc"
     end
   end
 
@@ -31,7 +31,7 @@ class AgentIncident < Formula
   end
 
   test do
-    assert_match "0.3.1", shell_output("#{bin}/agent-incident --version")
+    assert_match "0.4.0", shell_output("#{bin}/agent-incident --version")
     assert_match "incident", shell_output("#{bin}/agent-incident --help")
   end
 end
