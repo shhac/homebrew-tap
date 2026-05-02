@@ -1,28 +1,28 @@
 class AgentSql < Formula
   desc "Read-only SQL CLI for AI agents"
   homepage "https://github.com/shhac/agent-sql"
-  version "1.5.0"
+  version "1.6.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-sql/releases/download/v1.5.0/agent-sql-darwin-arm64.tar.gz"
-      sha256 "bdf0b9bd4e54e80ccb9928feb09dd63a0b9ab0deb4e78c42caf308a4aa6b5b61"
+      url "https://github.com/shhac/agent-sql/releases/download/v1.6.0/agent-sql-darwin-arm64.tar.gz"
+      sha256 "88c2d1ee27532063cd71cfbdb3324140706fba7ac3176a080f40fb0f04d27165"
     end
     on_intel do
-      url "https://github.com/shhac/agent-sql/releases/download/v1.5.0/agent-sql-darwin-amd64.tar.gz"
-      sha256 "60d5f03ab87f76f86f003379e5c69fb9878fdaec0467dba51d2d7c5830989199"
+      url "https://github.com/shhac/agent-sql/releases/download/v1.6.0/agent-sql-darwin-amd64.tar.gz"
+      sha256 "da7fd1db874bf2e29fd26b0f4654f771de01407464ca6108c06857dfac5bb38e"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-sql/releases/download/v1.5.0/agent-sql-linux-arm64.tar.gz"
-      sha256 "fd820c312f4629c0d125d3417d2483093caf0010a1e601efde2c071d52485c34"
+      url "https://github.com/shhac/agent-sql/releases/download/v1.6.0/agent-sql-linux-arm64.tar.gz"
+      sha256 "5280d4dbb17cdb2d53384bc615247171d3d4ec05c99f8a2f78f6494c49ed9acf"
     end
     on_intel do
-      url "https://github.com/shhac/agent-sql/releases/download/v1.5.0/agent-sql-linux-amd64.tar.gz"
-      sha256 "447b7d8284333146ee21eb73f6b7c7e76d336242d82b36c9d181ebe24b99d77f"
+      url "https://github.com/shhac/agent-sql/releases/download/v1.6.0/agent-sql-linux-amd64.tar.gz"
+      sha256 "df13dc22fa4a1f98b5e2ba60876a1580e044ae60eb508004d08de59010bc77f9"
     end
   end
 
@@ -31,7 +31,7 @@ class AgentSql < Formula
   end
 
   test do
-    assert_match "1.5.0", shell_output("#{bin}/agent-sql --version")
+    assert_match "1.6.0", shell_output("#{bin}/agent-sql --version")
     assert_match "SQL CLI", shell_output("#{bin}/agent-sql --help")
   end
 end
