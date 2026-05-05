@@ -1,28 +1,28 @@
 class AgentMongo < Formula
   desc "Read-only MongoDB CLI for AI agents"
   homepage "https://github.com/shhac/agent-mongo"
-  version "0.7.0"
+  version "0.8.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-mongo/releases/download/v0.7.0/agent-mongo-darwin-arm64.tar.gz"
-      sha256 "0c7c2363e11aba12d9fcd7d823991260342dac8fe9e42d873c758279a374aeb0"
+      url "https://github.com/shhac/agent-mongo/releases/download/v0.8.0/agent-mongo-darwin-arm64.tar.gz"
+      sha256 "80ab9a035ad62394c5813033dbb817e804bb00f11e05c811ef18e46da3f44be6"
     end
     on_intel do
-      url "https://github.com/shhac/agent-mongo/releases/download/v0.7.0/agent-mongo-darwin-x64.tar.gz"
-      sha256 "7da28a831e5a9a01d810641f39abf1589ec6125bc5e74eb3b1d4266f27009cb1"
+      url "https://github.com/shhac/agent-mongo/releases/download/v0.8.0/agent-mongo-darwin-x64.tar.gz"
+      sha256 "5dde97806dd29356b840ef1fb245415baae92f4088892c30fceb2f5a0771f685"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-mongo/releases/download/v0.7.0/agent-mongo-linux-arm64.tar.gz"
-      sha256 "141372523618537af22a374c3c0844f626ca2d17ebab409462760b6cb9247005"
+      url "https://github.com/shhac/agent-mongo/releases/download/v0.8.0/agent-mongo-linux-arm64.tar.gz"
+      sha256 "24ca97901f8feb6e071a91a64b6c5388136cf7291db1a881ccde41734f58f724"
     end
     on_intel do
-      url "https://github.com/shhac/agent-mongo/releases/download/v0.7.0/agent-mongo-linux-x64.tar.gz"
-      sha256 "b35b746336cfaf97e94f2ffd2f75ec15e3e278b36cef497ec172a969b5e95b06"
+      url "https://github.com/shhac/agent-mongo/releases/download/v0.8.0/agent-mongo-linux-x64.tar.gz"
+      sha256 "cfccc32acd30a0e06948e0df85a41acf1eed1d820e4abfa5ec2c93c7c37b6fc4"
     end
   end
 
@@ -31,7 +31,7 @@ class AgentMongo < Formula
   end
 
   test do
-    assert_match "0.7.0", shell_output("#{bin}/agent-mongo --version")
+    assert_match "0.8.0", shell_output("#{bin}/agent-mongo --help")
     assert_match "MongoDB CLI", shell_output("#{bin}/agent-mongo --help")
   end
 end
