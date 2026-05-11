@@ -1,28 +1,28 @@
 class GitWt < Formula
   desc "Fast CLI for managing git worktrees with enhanced features"
   homepage "https://github.com/shhac/git-wt"
-  version "0.7.2"
+  version "0.8.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/git-wt/releases/download/v0.7.2/git-wt-darwin-arm64.tar.gz"
-      sha256 "07576049b77fb9a80bef1384f38ed62939451b2cd1771ee6007c1e1f5ed9a66a"
+      url "https://github.com/shhac/git-wt/releases/download/v0.8.0/git-wt-darwin-arm64.tar.gz"
+      sha256 "f0ad906e816e85c4a852cdae0951ae1be04c498dfc25731c2d502f4301e43d44"
     end
     on_intel do
-      url "https://github.com/shhac/git-wt/releases/download/v0.7.2/git-wt-darwin-amd64.tar.gz"
-      sha256 "55cd5667bf51e955d3d08aa801caae15f779d94d402cbf26d2cfd4448f8c0ebe"
+      url "https://github.com/shhac/git-wt/releases/download/v0.8.0/git-wt-darwin-amd64.tar.gz"
+      sha256 "1815e1263a1dbeb19aa509696401c1f05559871a5064424b15cf5e010fbca9cc"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/git-wt/releases/download/v0.7.2/git-wt-linux-arm64.tar.gz"
-      sha256 "a42391a0a0ceeb74f47554bad68b054e194fa760ef332b0648560a76d09de901"
+      url "https://github.com/shhac/git-wt/releases/download/v0.8.0/git-wt-linux-arm64.tar.gz"
+      sha256 "8a48965de18123517dcb58f3f92c2bd50a63b26a11ba407a7934f371ae2b54d1"
     end
     on_intel do
-      url "https://github.com/shhac/git-wt/releases/download/v0.7.2/git-wt-linux-amd64.tar.gz"
-      sha256 "537f0d139d8c0544e6b0e5d61f85a17cdd9784b09ea564b2bc08cb399510e132"
+      url "https://github.com/shhac/git-wt/releases/download/v0.8.0/git-wt-linux-amd64.tar.gz"
+      sha256 "b045fdb50b3d645b0b7eb69291d15159051a7a6a9e6040f97ed9ae7c6d7fb7eb"
     end
   end
 
@@ -45,7 +45,7 @@ class GitWt < Formula
   end
 
   test do
-    assert_match "git-wt version 0.7.2", shell_output("#{bin}/git-wt --version")
+    assert_match "git-wt version 0.8.0", shell_output("#{bin}/git-wt --version")
     assert_match "worktree", shell_output("#{bin}/git-wt --help")
   end
 end
