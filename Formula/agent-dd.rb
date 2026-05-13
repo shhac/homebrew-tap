@@ -1,28 +1,28 @@
 class AgentDd < Formula
   desc "Datadog triage CLI for AI agents"
   homepage "https://github.com/shhac/agent-dd"
-  version "0.5.0"
+  version "0.5.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-dd/releases/download/v0.5.0/agent-dd-darwin-arm64.tar.gz"
-      sha256 "14793dc049a68fd8b1e0ffbc386c927b621fe23b91aab9e25f920c6128fb6329"
+      url "https://github.com/shhac/agent-dd/releases/download/v0.5.1/agent-dd-darwin-arm64.tar.gz"
+      sha256 "24d7470175ce7dcccb8793d2a771472af828e41656253e3d7fb44cf45c166c78"
     end
     on_intel do
-      url "https://github.com/shhac/agent-dd/releases/download/v0.5.0/agent-dd-darwin-amd64.tar.gz"
-      sha256 "df11c5c78ca7fd6cd916be7d38e5b8020142114e3e8924d90801e2d027ad1daa"
+      url "https://github.com/shhac/agent-dd/releases/download/v0.5.1/agent-dd-darwin-amd64.tar.gz"
+      sha256 "cc00e50d6b7db01c6e4801f345cf9ca9720ab4bf6453c57f3bb06a726bf11342"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-dd/releases/download/v0.5.0/agent-dd-linux-arm64.tar.gz"
-      sha256 "077778d65816dc2823d4a73d010508014be935c5e8ebd3da5ea6242d5ce97a1e"
+      url "https://github.com/shhac/agent-dd/releases/download/v0.5.1/agent-dd-linux-arm64.tar.gz"
+      sha256 "99453a0dc8b133f2663aa6cc5ce7cb060443671d32376ec3eeed495eed5cf2ee"
     end
     on_intel do
-      url "https://github.com/shhac/agent-dd/releases/download/v0.5.0/agent-dd-linux-amd64.tar.gz"
-      sha256 "5dfa048b1b7466ef16d026343683f55d47dc4c8042b0ae4922533e665574ac75"
+      url "https://github.com/shhac/agent-dd/releases/download/v0.5.1/agent-dd-linux-amd64.tar.gz"
+      sha256 "f0665c29a875ed62c21b26c150c4dd273f0de98445df060069e33a1ee2b0af04"
     end
   end
 
@@ -31,7 +31,7 @@ class AgentDd < Formula
   end
 
   test do
-    assert_match "0.5.0", shell_output("#{bin}/agent-dd version")
+    assert_match "0.5.1", shell_output("#{bin}/agent-dd --version")
     assert_match "Datadog", shell_output("#{bin}/agent-dd --help")
   end
 end
