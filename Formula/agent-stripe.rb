@@ -1,28 +1,28 @@
 class AgentStripe < Formula
   desc "Stripe incident triage CLI for AI agents"
   homepage "https://github.com/shhac/agent-stripe"
-  version "0.3.0"
+  version "0.4.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-stripe/releases/download/v0.3.0/agent-stripe-darwin-arm64.tar.gz"
-      sha256 "12a6797366176f099cc82dbbf981c4af7486f5f75aaf3a54362869bf4056866f"
+      url "https://github.com/shhac/agent-stripe/releases/download/v0.4.0/agent-stripe-darwin-arm64.tar.gz"
+      sha256 "da5cc9af47afbb67e132707520de386c46b83c1db1340b6a70d173f3f96409aa"
     end
     on_intel do
-      url "https://github.com/shhac/agent-stripe/releases/download/v0.3.0/agent-stripe-darwin-amd64.tar.gz"
-      sha256 "7df57f3828a7617ac6901a22d0a3c8ee5d8601e671418410746fbcf8bef0db59"
+      url "https://github.com/shhac/agent-stripe/releases/download/v0.4.0/agent-stripe-darwin-amd64.tar.gz"
+      sha256 "5cfee82a531b1c392bc0ff451393e0d1a59088d5ddeaba5805751da9fcd60f79"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-stripe/releases/download/v0.3.0/agent-stripe-linux-arm64.tar.gz"
-      sha256 "fd8dbecb487445758c05e66750d67c43d0f3723394fa57b2c5a58cfa0146d09c"
+      url "https://github.com/shhac/agent-stripe/releases/download/v0.4.0/agent-stripe-linux-arm64.tar.gz"
+      sha256 "89f1f2a2a5b00598477c05c3e94dfd6dce82fb07d914cd60953face287ef4af6"
     end
     on_intel do
-      url "https://github.com/shhac/agent-stripe/releases/download/v0.3.0/agent-stripe-linux-amd64.tar.gz"
-      sha256 "d2a79b41f5add0179a45061674bdd5a3786b6a4f88e568b1352c6f6c98c2fc70"
+      url "https://github.com/shhac/agent-stripe/releases/download/v0.4.0/agent-stripe-linux-amd64.tar.gz"
+      sha256 "e63c7da33f01ef1f9b8c33afef9c882118695846916390291764396368749299"
     end
   end
 
@@ -35,7 +35,7 @@ class AgentStripe < Formula
   end
 
   test do
-    assert_match "0.3.0", shell_output("#{bin}/agent-stripe --version")
+    assert_match "0.4.0", shell_output("#{bin}/agent-stripe --version")
     assert_match "Stripe incident triage CLI", shell_output("#{bin}/agent-stripe --help")
     # Completion subcommand must produce something for each supported shell.
     assert_match "#compdef agent-stripe", shell_output("#{bin}/agent-stripe completion zsh")
