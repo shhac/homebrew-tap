@@ -3,6 +3,7 @@ class AgentCloudflare < Formula
   homepage "https://github.com/shhac/agent-cloudflare"
   version "0.1.0"
   license "MIT"
+  revision 1
 
   on_macos do
     on_arm do
@@ -28,10 +29,16 @@ class AgentCloudflare < Formula
 
   def install
     bin.install Dir["agent-cloudflare-*"].first => "agent-cloudflare"
+    # Runs `agent-cloudflare completion bash|zsh|fish` and installs each to brew's
+    # standard completion paths. zsh and fish pick them up via the
+    # default brew shellenv; bash needs `brew install bash-completion@2`.
+    generate_completions_from_executable(bin/"agent-cloudflare", "completion")
   end
 
   test do
     assert_match "0.1.0", shell_output("#{bin}/agent-cloudflare --version")
     assert_match "agent-cloudflare usage", shell_output("#{bin}/agent-cloudflare usage")
+    assert_match "#compdef agent-cloudflare", shell_output("#{bin}/agent-cloudflare completion zsh")
+    assert_match "bash completion", shell_output("#{bin}/agent-cloudflare completion bash")
   end
 end
