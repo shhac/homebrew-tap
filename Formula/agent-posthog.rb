@@ -1,37 +1,44 @@
 class AgentPosthog < Formula
   desc "PostHog product analytics CLI for AI agents"
   homepage "https://github.com/shhac/agent-posthog"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-posthog/releases/download/v0.1.0/agent-posthog-darwin-arm64.tar.gz"
-      sha256 "a2578ac0558bc31bd74873509b8936cc21695c805b83e8b8e873f3d23c3a9f65"
+      url "https://github.com/shhac/agent-posthog/releases/download/v0.1.1/agent-posthog-darwin-arm64.tar.gz"
+      sha256 "31d33aecb1d0d0166146d2d07cb61882a27e22098e9fb1ac60471f85618d98e3"
     end
     on_intel do
-      url "https://github.com/shhac/agent-posthog/releases/download/v0.1.0/agent-posthog-darwin-amd64.tar.gz"
-      sha256 "01628c3ba96ff3bc505f612a450ace836ec345d211418cf0568649a09586c40a"
+      url "https://github.com/shhac/agent-posthog/releases/download/v0.1.1/agent-posthog-darwin-amd64.tar.gz"
+      sha256 "d2dd468103b52b2398de4fe1833005f9108c97186afd5fce955d632108b674e9"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-posthog/releases/download/v0.1.0/agent-posthog-linux-arm64.tar.gz"
-      sha256 "8caff49c70db0331a9dea5695faf4522770ecc05afa64b6a3952c700ff1e9c06"
+      url "https://github.com/shhac/agent-posthog/releases/download/v0.1.1/agent-posthog-linux-arm64.tar.gz"
+      sha256 "f521b1634c701cdd597f47ea9131bce9cd6608416724eb24c8636ff722f99887"
     end
     on_intel do
-      url "https://github.com/shhac/agent-posthog/releases/download/v0.1.0/agent-posthog-linux-amd64.tar.gz"
-      sha256 "35e461f42ccbcb5550a460c355c96b726a5cf57781fb64f6c4349e05ff13005a"
+      url "https://github.com/shhac/agent-posthog/releases/download/v0.1.1/agent-posthog-linux-amd64.tar.gz"
+      sha256 "8a63fcf7e57bd04db003d47985b8002cd7fe7362204dc9a97aef0d7eda15093d"
     end
   end
 
   def install
     bin.install Dir["agent-posthog-*"].first => "agent-posthog"
+    # Runs `agent-posthog completion bash|zsh|fish` and installs each to brew's
+    # standard completion paths. zsh and fish pick them up via the
+    # default brew shellenv; bash needs `brew install bash-completion@2`.
+    generate_completions_from_executable(bin/"agent-posthog", "completion")
   end
 
   test do
-    assert_match "0.1.0", shell_output("#{bin}/agent-posthog --version")
+    assert_match "0.1.1", shell_output("#{bin}/agent-posthog --version")
     assert_match "Never paste API keys", shell_output("#{bin}/agent-posthog usage")
+    # Completion subcommand must produce something for each supported shell.
+    assert_match "#compdef agent-posthog", shell_output("#{bin}/agent-posthog completion zsh")
+    assert_match "bash completion", shell_output("#{bin}/agent-posthog completion bash")
   end
 end
