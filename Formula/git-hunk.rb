@@ -1,28 +1,27 @@
 class GitHunk < Formula
   desc "Non-interactive CLI for staging git diff hunks by content hash"
   homepage "https://github.com/shhac/git-hunk"
-  version "0.14.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/git-hunk/releases/download/v0.14.1/git-hunk-aarch64-macos.tar.gz"
-      sha256 "44d75b4f4cc75f8438f3f31e24b254bb2fed05e8a550ae50f57c7d7de17dc837"
+      url "https://github.com/shhac/git-hunk/releases/download/v0.14.2/git-hunk-aarch64-macos.tar.gz"
+      sha256 "53122b9e5f1e27207deeec6168b6c9f5cd76e728bb871526dd37431d78450eea"
     end
     on_intel do
-      url "https://github.com/shhac/git-hunk/releases/download/v0.14.1/git-hunk-x86_64-macos.tar.gz"
-      sha256 "f11ceb4b92ee353ee1989c314a7c547ff5b944e70a6b82537c31c57c3728aabe"
+      url "https://github.com/shhac/git-hunk/releases/download/v0.14.2/git-hunk-x86_64-macos.tar.gz"
+      sha256 "8d009f9c03126e27a8af843cccf12ff44e442ca83fc928ee0130ce693b2b6cef"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/git-hunk/releases/download/v0.14.1/git-hunk-aarch64-linux.tar.gz"
-      sha256 "09435013a2e15607801618e4950d37c0e482aea439793fc15f68c86ee542d3ed"
+      url "https://github.com/shhac/git-hunk/releases/download/v0.14.2/git-hunk-aarch64-linux.tar.gz"
+      sha256 "2a91a733806926edd01677f73caf33c295da137265c1b9d4f8008fe42a24ea89"
     end
     on_intel do
-      url "https://github.com/shhac/git-hunk/releases/download/v0.14.1/git-hunk-x86_64-linux.tar.gz"
-      sha256 "ac9b6e8521b6aeae83556496d45b61a0a9130ca027b6a7c4801ce5be6f4bf6b7"
+      url "https://github.com/shhac/git-hunk/releases/download/v0.14.2/git-hunk-x86_64-linux.tar.gz"
+      sha256 "bf93824ac781bec9cafcd52f6d4c3902602154ed66c8c4db1ceda827ac2d970e"
     end
   end
 
@@ -32,6 +31,6 @@ class GitHunk < Formula
   end
 
   test do
-    assert_match "git-hunk 0.14.1", shell_output("#{bin}/git-hunk --version")
+    assert_match "git-hunk 0.14.2", shell_output("#{bin}/git-hunk --version")
   end
 end
