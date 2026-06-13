@@ -28,6 +28,7 @@ class AgentSlack < Formula
 
   def install
     bin.install Dir["agent-slack-*"].first => "agent-slack"
+    generate_completions_from_executable(bin/"agent-slack", "completion")
   end
 
   test do
