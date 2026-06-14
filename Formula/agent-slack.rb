@@ -1,28 +1,28 @@
 class AgentSlack < Formula
   desc "Slack CLI for AI agents"
   homepage "https://github.com/shhac/agent-slack"
-  version "0.9.0"
+  version "0.10.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-slack/releases/download/v0.9.0/agent-slack-darwin-arm64.tar.gz"
-      sha256 "4a3391f57e46d0b97936cd97197d72f5c91f50ecad8de28accd8b5334185e5a7"
+      url "https://github.com/shhac/agent-slack/releases/download/v0.10.0/agent-slack-darwin-arm64.tar.gz"
+      sha256 "aa38e9ed41897dead55ed3b57a4b87f7504e8476978945a6c73028206c35e2cd"
     end
     on_intel do
-      url "https://github.com/shhac/agent-slack/releases/download/v0.9.0/agent-slack-darwin-amd64.tar.gz"
-      sha256 "c8704e0f5cfd01fea4ebef2566fc86087f3df6a14b80fb023346074e0b96725f"
+      url "https://github.com/shhac/agent-slack/releases/download/v0.10.0/agent-slack-darwin-amd64.tar.gz"
+      sha256 "6cb03f7715d481e65cbbb5ea475d990f289642d30a3d0a65c7144ab8e2eae3f4"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-slack/releases/download/v0.9.0/agent-slack-linux-arm64.tar.gz"
-      sha256 "4a574bf39af862e7800407a5f635f0668f39aa696eb6bdee1c6f43f081c92b73"
+      url "https://github.com/shhac/agent-slack/releases/download/v0.10.0/agent-slack-linux-arm64.tar.gz"
+      sha256 "3ccdafa55408c6f56690f93b6062ab475ad84a1a4b59160c8c238ee920418866"
     end
     on_intel do
-      url "https://github.com/shhac/agent-slack/releases/download/v0.9.0/agent-slack-linux-amd64.tar.gz"
-      sha256 "1588be84c7b5b08a585d5d391314214e81820b14553ed39d336b76d719a1ee61"
+      url "https://github.com/shhac/agent-slack/releases/download/v0.10.0/agent-slack-linux-amd64.tar.gz"
+      sha256 "148da210c1e769ef64c2d1bcf8bb80389075b8ecc74201a4a199e1c5a638aa91"
     end
   end
 
@@ -32,7 +32,7 @@ class AgentSlack < Formula
   end
 
   test do
-    assert_match "0.9.0", shell_output("#{bin}/agent-slack --version")
+    assert_match "0.10.0", shell_output("#{bin}/agent-slack --version")
     assert_match "Slack CLI for AI agents", shell_output("#{bin}/agent-slack usage")
   end
 end
