@@ -1,29 +1,28 @@
 class AgentCloudflare < Formula
   desc "Cloudflare operations CLI for AI agents"
   homepage "https://github.com/shhac/agent-cloudflare"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
-  revision 1
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-cloudflare/releases/download/v0.1.0/agent-cloudflare-darwin-arm64.tar.gz"
-      sha256 "c4259282366be56a69e34c40decf1101f29a9d1538d7d0807423b6a212172c9f"
+      url "https://github.com/shhac/agent-cloudflare/releases/download/v0.2.0/agent-cloudflare-darwin-arm64.tar.gz"
+      sha256 "96c35e194274bfb288e94fdbbaef47989f8ae3de33047eb934edb6226d2c4a23"
     end
     on_intel do
-      url "https://github.com/shhac/agent-cloudflare/releases/download/v0.1.0/agent-cloudflare-darwin-amd64.tar.gz"
-      sha256 "a564747856ad6d020586723e76086d899f362d5530ae8524599898e68c535d75"
+      url "https://github.com/shhac/agent-cloudflare/releases/download/v0.2.0/agent-cloudflare-darwin-amd64.tar.gz"
+      sha256 "fd37f57cdf644e34c3093a46f8dd81ecf727836448cfb4bbb76fb852f28ae55b"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-cloudflare/releases/download/v0.1.0/agent-cloudflare-linux-arm64.tar.gz"
-      sha256 "ca18e15872ebcb1cadb039c1177beb61cfdcbcc4611552d8e250547011662a43"
+      url "https://github.com/shhac/agent-cloudflare/releases/download/v0.2.0/agent-cloudflare-linux-arm64.tar.gz"
+      sha256 "d6e0837d34f387597e8e28437f13c407b30df9adf3d229061a1fb97805695cd7"
     end
     on_intel do
-      url "https://github.com/shhac/agent-cloudflare/releases/download/v0.1.0/agent-cloudflare-linux-amd64.tar.gz"
-      sha256 "f82c5ee212f29c4ff14111e0024d4c21d375db8b0c08b92ae106a6e3483019f9"
+      url "https://github.com/shhac/agent-cloudflare/releases/download/v0.2.0/agent-cloudflare-linux-amd64.tar.gz"
+      sha256 "d9ba0bfb1ad031e11d3bd144905c72e2959912031e68588b6bace565aa960ddd"
     end
   end
 
@@ -36,7 +35,7 @@ class AgentCloudflare < Formula
   end
 
   test do
-    assert_match "0.1.0", shell_output("#{bin}/agent-cloudflare --version")
+    assert_match "0.2.0", shell_output("#{bin}/agent-cloudflare --version")
     assert_match "agent-cloudflare usage", shell_output("#{bin}/agent-cloudflare usage")
     assert_match "#compdef agent-cloudflare", shell_output("#{bin}/agent-cloudflare completion zsh")
     assert_match "bash completion", shell_output("#{bin}/agent-cloudflare completion bash")
