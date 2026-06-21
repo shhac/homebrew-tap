@@ -1,39 +1,40 @@
 class AgentIncident < Formula
   desc "incident.io triage CLI for AI agents"
   homepage "https://github.com/shhac/agent-incident"
-  version "0.6.0"
+  version "0.6.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-incident/releases/download/v0.6.0/agent-incident-darwin-arm64.tar.gz"
-      sha256 "37465b74dbc8ad46d2d0263d9b2e69ece72cdcafe1e29a87b3fe9d46519e482d"
+      url "https://github.com/shhac/agent-incident/releases/download/v0.6.1/agent-incident-darwin-arm64.tar.gz"
+      sha256 "b835a9f44fb75981e69e762d988fb205825ca877ff6ef23415bba6efbb06bf5f"
     end
     on_intel do
-      url "https://github.com/shhac/agent-incident/releases/download/v0.6.0/agent-incident-darwin-amd64.tar.gz"
-      sha256 "92f8e4707f8b385faf280585cb60aab8b6636368038bfcb6fae61a5d353f1f95"
+      url "https://github.com/shhac/agent-incident/releases/download/v0.6.1/agent-incident-darwin-amd64.tar.gz"
+      sha256 "2ae4a261eb7dd2a9799bb249356cd27898ec08395f5c8904d8d0b31d427f7fa9"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-incident/releases/download/v0.6.0/agent-incident-linux-arm64.tar.gz"
-      sha256 "add9d7cc952ce849d1aff2cd5fba7b0db210b96ac78a476563d0f6f88b1ba872"
+      url "https://github.com/shhac/agent-incident/releases/download/v0.6.1/agent-incident-linux-arm64.tar.gz"
+      sha256 "7efe0aaeace20823ee1141c169821db45c73c5a6563a2c01f22d3a8053280c9b"
     end
     on_intel do
-      url "https://github.com/shhac/agent-incident/releases/download/v0.6.0/agent-incident-linux-amd64.tar.gz"
-      sha256 "6ae14e95e7caa13113461d2ccc46200597c468240bdcaef7af6ff29c63cd4eb6"
+      url "https://github.com/shhac/agent-incident/releases/download/v0.6.1/agent-incident-linux-amd64.tar.gz"
+      sha256 "4d9937e11234222f3b5c19866f3a8781d4f624b54a795f14116c08d262637c9a"
     end
   end
 
   def install
-    bin.install Dir["agent-incident-*"].first => "agent-incident"
+    bin.install "agent-incident"
     # Installs shell completions via `agent-incident completion bash|zsh|fish`.
     generate_completions_from_executable(bin/"agent-incident", "completion")
   end
 
   test do
-    assert_match "0.6.0", shell_output("#{bin}/agent-incident --version")
-    assert_match "incident", shell_output("#{bin}/agent-incident --help")
+    assert_match "0.6.1", shell_output("#{bin}/agent-incident --version")
+    assert_match "incident.io triage CLI", shell_output("#{bin}/agent-incident --help")
+    assert_match "#compdef agent-incident", shell_output("#{bin}/agent-incident completion zsh")
   end
 end
