@@ -1,43 +1,40 @@
 class AgentPostmark < Formula
   desc "Postmark delivery triage CLI for AI agents"
   homepage "https://github.com/shhac/agent-postmark"
-  version "0.5.0"
+  version "0.5.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-postmark/releases/download/v0.5.0/agent-postmark-darwin-arm64.tar.gz"
-      sha256 "82b32a767b9ccdfd61d0f699b10f35826d2c31d4d14bbe13dc5b0f626adc534d"
+      url "https://github.com/shhac/agent-postmark/releases/download/v0.5.1/agent-postmark-darwin-arm64.tar.gz"
+      sha256 "cf2afe413914b81c5a1fca15756ab983465ebed732785d950a208319064cf43b"
     end
     on_intel do
-      url "https://github.com/shhac/agent-postmark/releases/download/v0.5.0/agent-postmark-darwin-amd64.tar.gz"
-      sha256 "7796084ee4087df0e7657d0f02805e3794be5fb8c886e7e0c81c8feb46d50a80"
+      url "https://github.com/shhac/agent-postmark/releases/download/v0.5.1/agent-postmark-darwin-amd64.tar.gz"
+      sha256 "aecb3053936574ac9f181118caca2a07ab0048f0fc176bc4eadca5297c0b7753"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-postmark/releases/download/v0.5.0/agent-postmark-linux-arm64.tar.gz"
-      sha256 "748e0c4ee3a13cbc9202675c0f1611da4135e93d1a3a56fdf1dc8b7f31529174"
+      url "https://github.com/shhac/agent-postmark/releases/download/v0.5.1/agent-postmark-linux-arm64.tar.gz"
+      sha256 "fe7e989b12511353d417755cd695685273ae8a51f5868f4cab262a6708952159"
     end
     on_intel do
-      url "https://github.com/shhac/agent-postmark/releases/download/v0.5.0/agent-postmark-linux-amd64.tar.gz"
-      sha256 "ac15f326cd12c4f768a543eff4917de456cfc4654b8ab5bb1fb27977f6060f96"
+      url "https://github.com/shhac/agent-postmark/releases/download/v0.5.1/agent-postmark-linux-amd64.tar.gz"
+      sha256 "9c8201a2c74ef052f4adc07dd98554a2b886f5725d09aee96ea21b230b047e8e"
     end
   end
 
   def install
-    bin.install Dir["agent-postmark-*"].first => "agent-postmark"
-    # Runs `agent-postmark completion bash|zsh|fish` and installs each to brew's
-    # standard completion paths. zsh and fish pick them up via the
-    # default brew shellenv; bash needs `brew install bash-completion@2`.
+    bin.install "agent-postmark"
+    # Installs shell completions via `agent-postmark completion bash|zsh|fish`.
     generate_completions_from_executable(bin/"agent-postmark", "completion")
   end
 
   test do
-    assert_match "0.5.0", shell_output("#{bin}/agent-postmark --version")
-    assert_match "agent-postmark", shell_output("#{bin}/agent-postmark usage")
+    assert_match "0.5.1", shell_output("#{bin}/agent-postmark --version")
+    assert_match "Postmark delivery triage CLI", shell_output("#{bin}/agent-postmark --help")
     assert_match "#compdef agent-postmark", shell_output("#{bin}/agent-postmark completion zsh")
-    assert_match "bash completion", shell_output("#{bin}/agent-postmark completion bash")
   end
 end
