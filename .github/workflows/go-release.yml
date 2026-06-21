@@ -1,0 +1,216 @@
+# Reusable release workflow for the shhac Go CLI family (agent-* + lin).
+#
+# A CLI repo calls this from its own `.github/workflows/release.yml` on a v* tag
+# push. This workflow (running in the CALLER's context) cross-builds the static
+# Go binary for every target, publishes a GitHub Release, then regenerates and
+# pushes the Homebrew formula — so releasing is just `git tag vX.Y.Z && git push
+# --tags`, with no manual formula bump.
+#
+# The homebrew job runs in the `homebrew-tap` Environment, whose TAP_DEPLOY_KEY
+# secret is reachable only from v* tag refs (a deployment tag-policy) — so branch
+# builds can never push to the tap. Pushes use a rebase-retry loop, so concurrent
+# releases of sibling formulae never clobber each other (no serial constraint).
+name: go-release
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: "CLI + formula name, e.g. agent-vercel (binary, formula file, /shhac/<name>)"
+        required: true
+        type: string
+      desc:
+        description: "Homebrew formula desc line"
+        required: true
+        type: string
+      formula_class:
+        description: "Ruby formula class, e.g. AgentVercel"
+        required: true
+        type: string
+      help_match:
+        description: "Substring the formula test asserts in `<name> --help`"
+        required: true
+        type: string
+      cmd_path:
+        description: "main package path (default ./cmd/<name>)"
+        required: false
+        type: string
+        default: ""
+      license:
+        description: "SPDX license id for the formula"
+        required: false
+        type: string
+        default: "MIT"
+
+jobs:
+  build:
+    name: Build + GitHub Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: Resolve metadata
+        id: meta
+        run: |
+          echo "version=${GITHUB_REF#refs/tags/v}" >> "$GITHUB_OUTPUT"
+          cmd='${{ inputs.cmd_path }}'
+          [ -z "$cmd" ] && cmd="./cmd/${{ inputs.name }}"
+          echo "cmd=$cmd" >> "$GITHUB_OUTPUT"
+      - name: Cross-build + package
+        env:
+          NAME: ${{ inputs.name }}
+          VERSION: ${{ steps.meta.outputs.version }}
+          CMD: ${{ steps.meta.outputs.cmd }}
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          build() { # os arch ext
+            local os="$1" arch="$2" ext="${3:-}"
+            CGO_ENABLED=0 GOOS="$os" GOARCH="$arch" \
+              go build -trimpath -ldflags "-s -w -X main.version=${VERSION}" \
+              -o "${NAME}${ext}" "${CMD}"
+          }
+          for pair in darwin/arm64 darwin/amd64 linux/amd64 linux/arm64; do
+            os="${pair%/*}"; arch="${pair#*/}"
+            build "$os" "$arch"
+            tar -czf "dist/${NAME}-${os}-${arch}.tar.gz" "${NAME}"
+            rm -f "${NAME}"
+          done
+          build windows amd64 .exe
+          zip -qj "dist/${NAME}-windows-amd64.zip" "${NAME}.exe"
+          rm -f "${NAME}.exe"
+          ( cd dist && sha256sum ./*.tar.gz ./*.zip > checksums-sha256.txt )
+          ls -lh dist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+
+  homebrew:
+    name: Update Homebrew tap
+    needs: build
+    runs-on: ubuntu-latest
+    # TAP_DEPLOY_KEY lives in this environment; only v* tag refs may deploy to it
+    # (deployment tag policy), so branch builds never see the tap write key.
+    environment: homebrew-tap
+    steps:
+      - name: Guard on deploy key
+        id: guard
+        env:
+          TAP_DEPLOY_KEY: ${{ secrets.TAP_DEPLOY_KEY }}
+        run: |
+          if [ -n "${TAP_DEPLOY_KEY}" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::TAP_DEPLOY_KEY not set — skipping tap update (delete the secret to disable publishing)."
+          fi
+      - name: Download artifacts
+        if: steps.guard.outputs.enabled == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+      - name: Generate formula
+        if: steps.guard.outputs.enabled == 'true'
+        env:
+          NAME: ${{ inputs.name }}
+          DESC: ${{ inputs.desc }}
+          KLASS: ${{ inputs.formula_class }}
+          HELP_MATCH: ${{ inputs.help_match }}
+          LICENSE: ${{ inputs.license }}
+        run: |
+          set -euo pipefail
+          VERSION="${GITHUB_REF#refs/tags/v}"
+          sha() { sha256sum "dist/${NAME}-$1.tar.gz" | cut -d' ' -f1; }
+          MACOS_ARM="$(sha darwin-arm64)"
+          MACOS_X86="$(sha darwin-amd64)"
+          LINUX_ARM="$(sha linux-arm64)"
+          LINUX_X86="$(sha linux-amd64)"
+          base="https://github.com/shhac/${NAME}/releases/download/v${VERSION}"
+          cat > "${NAME}.rb" <<EOF
+          class ${KLASS} < Formula
+            desc "${DESC}"
+            homepage "https://github.com/shhac/${NAME}"
+            version "${VERSION}"
+            license "${LICENSE}"
+
+            on_macos do
+              on_arm do
+                url "${base}/${NAME}-darwin-arm64.tar.gz"
+                sha256 "${MACOS_ARM}"
+              end
+              on_intel do
+                url "${base}/${NAME}-darwin-amd64.tar.gz"
+                sha256 "${MACOS_X86}"
+              end
+            end
+
+            on_linux do
+              on_arm do
+                url "${base}/${NAME}-linux-arm64.tar.gz"
+                sha256 "${LINUX_ARM}"
+              end
+              on_intel do
+                url "${base}/${NAME}-linux-amd64.tar.gz"
+                sha256 "${LINUX_X86}"
+              end
+            end
+
+            def install
+              bin.install "${NAME}"
+              # Installs shell completions via \`${NAME} completion bash|zsh|fish\`.
+              generate_completions_from_executable(bin/"${NAME}", "completion")
+            end
+
+            test do
+              assert_match "${VERSION}", shell_output("#{bin}/${NAME} --version")
+              assert_match "${HELP_MATCH}", shell_output("#{bin}/${NAME} --help")
+              assert_match "#compdef ${NAME}", shell_output("#{bin}/${NAME} completion zsh")
+            end
+          end
+          EOF
+          echo "----- generated Formula/${NAME}.rb -----"
+          cat "${NAME}.rb"
+      - name: Push formula to tap (rebase-retry)
+        if: steps.guard.outputs.enabled == 'true'
+        env:
+          NAME: ${{ inputs.name }}
+          VERSION_TAG: ${{ github.ref_name }}
+          TAP_DEPLOY_KEY: ${{ secrets.TAP_DEPLOY_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          printf '%s\n' "${TAP_DEPLOY_KEY}" > ~/.ssh/tap_key
+          chmod 600 ~/.ssh/tap_key
+          echo "github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl" >> ~/.ssh/known_hosts
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/tap_key -o IdentitiesOnly=yes"
+          git clone git@github.com:shhac/homebrew-tap.git tap
+          cp "${NAME}.rb" "tap/Formula/${NAME}.rb"
+          cd tap
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "Formula/${NAME}.rb"
+          if git diff --cached --quiet; then
+            echo "Formula already up to date."
+            exit 0
+          fi
+          git commit -m "${NAME} ${VERSION_TAG#v}"
+          for attempt in 1 2 3; do
+            if git push origin main; then exit 0; fi
+            echo "push rejected (attempt ${attempt}); rebasing…"
+            git pull --rebase origin main
+          done
+          echo "::error::failed to push tap update after 3 attempts" >&2
+          exit 1
