@@ -207,10 +207,13 @@ jobs:
             exit 0
           fi
           git commit -m "${NAME} ${VERSION_TAG#v}"
-          for attempt in 1 2 3; do
+          # Generous retries + jitter: many sibling formulae may release at once,
+          # all pushing to this one branch.
+          for attempt in $(seq 1 8); do
             if git push origin main; then exit 0; fi
-            echo "push rejected (attempt ${attempt}); rebasing…"
+            echo "push rejected (attempt ${attempt}); rebasing after jitter…"
+            sleep "$(( (RANDOM % 6) + 1 ))"
             git pull --rebase origin main
           done
-          echo "::error::failed to push tap update after 3 attempts" >&2
+          echo "::error::failed to push tap update after 8 attempts" >&2
           exit 1
