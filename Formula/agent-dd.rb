@@ -28,6 +28,8 @@ class AgentDd < Formula
 
   def install
     bin.install Dir["agent-dd-*"].first => "agent-dd"
+    # Installs shell completions via `agent-dd completion bash|zsh|fish`.
+    generate_completions_from_executable(bin/"agent-dd", "completion")
   end
 
   test do

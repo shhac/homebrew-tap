@@ -28,6 +28,8 @@ class AgentStatsig < Formula
 
   def install
     bin.install Dir["agent-statsig-*"].first => "agent-statsig"
+    # Installs shell completions via `agent-statsig completion bash|zsh|fish`.
+    generate_completions_from_executable(bin/"agent-statsig", "completion")
   end
 
   test do

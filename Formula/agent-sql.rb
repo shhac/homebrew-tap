@@ -28,6 +28,8 @@ class AgentSql < Formula
 
   def install
     bin.install Dir["agent-sql-*"].first => "agent-sql"
+    # Installs shell completions via `agent-sql completion bash|zsh|fish`.
+    generate_completions_from_executable(bin/"agent-sql", "completion")
   end
 
   test do

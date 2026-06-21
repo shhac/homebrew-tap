@@ -28,6 +28,8 @@ class AgentIncident < Formula
 
   def install
     bin.install Dir["agent-incident-*"].first => "agent-incident"
+    # Installs shell completions via `agent-incident completion bash|zsh|fish`.
+    generate_completions_from_executable(bin/"agent-incident", "completion")
   end
 
   test do

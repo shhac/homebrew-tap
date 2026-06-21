@@ -28,6 +28,8 @@ class AgentDeepweb < Formula
 
   def install
     bin.install Dir["agent-deepweb-*"].first => "agent-deepweb"
+    # Installs shell completions via `agent-deepweb completion bash|zsh|fish`.
+    generate_completions_from_executable(bin/"agent-deepweb", "completion")
   end
 
   test do

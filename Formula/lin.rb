@@ -28,6 +28,8 @@ class Lin < Formula
 
   def install
     bin.install Dir["lin*"].first => "lin"
+    # Installs shell completions via `lin completion bash|zsh|fish`.
+    generate_completions_from_executable(bin/"lin", "completion")
   end
 
   test do
