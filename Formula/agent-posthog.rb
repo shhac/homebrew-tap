@@ -1,28 +1,28 @@
 class AgentPosthog < Formula
   desc "PostHog product analytics CLI for AI agents"
   homepage "https://github.com/shhac/agent-posthog"
-  version "0.7.0"
+  version "0.8.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-posthog/releases/download/v0.7.0/agent-posthog-darwin-arm64.tar.gz"
-      sha256 "c30642135920e885f9d89c1e8a8ae9605ba96dec07bd9648c19fc30f63615c4d"
+      url "https://github.com/shhac/agent-posthog/releases/download/v0.8.0/agent-posthog-darwin-arm64.tar.gz"
+      sha256 "37ece2f0dc5c8ad3d9c327d57bac3716b07d1cd5032c4ec1fb8fb844a9cdf856"
     end
     on_intel do
-      url "https://github.com/shhac/agent-posthog/releases/download/v0.7.0/agent-posthog-darwin-amd64.tar.gz"
-      sha256 "26c4bfc7d3c0367bad6a395ba8edab1d4b04733058f6581f8cdb98bc3332967d"
+      url "https://github.com/shhac/agent-posthog/releases/download/v0.8.0/agent-posthog-darwin-amd64.tar.gz"
+      sha256 "7d9cd9719547310c36b83a85c4e3a04fed3fa12e9df4db6b61128a0263f7c83a"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-posthog/releases/download/v0.7.0/agent-posthog-linux-arm64.tar.gz"
-      sha256 "f929497977e598f4f9a6328e2a5a36716fa985a4cf3a8454e8af2943dd4e8629"
+      url "https://github.com/shhac/agent-posthog/releases/download/v0.8.0/agent-posthog-linux-arm64.tar.gz"
+      sha256 "adc2d808c8d1adb94e0687c5ec7b293c622a9a4fe40d8535f510ced571268d65"
     end
     on_intel do
-      url "https://github.com/shhac/agent-posthog/releases/download/v0.7.0/agent-posthog-linux-amd64.tar.gz"
-      sha256 "d63c037db0eb8aa3c14e29e5d4c5b61bdfc788e8f868ab9dd6e3984c01b49207"
+      url "https://github.com/shhac/agent-posthog/releases/download/v0.8.0/agent-posthog-linux-amd64.tar.gz"
+      sha256 "963ff4a20abfc5f2c6fe97111af8fa7cb496d50854b3c21b1151d5b3048b1ae6"
     end
   end
 
@@ -33,7 +33,7 @@ class AgentPosthog < Formula
   end
 
   test do
-    assert_match "0.7.0", shell_output("#{bin}/agent-posthog --version")
+    assert_match "0.8.0", shell_output("#{bin}/agent-posthog --version")
     assert_match "PostHog product analytics CLI", shell_output("#{bin}/agent-posthog --help")
     assert_match "#compdef agent-posthog", shell_output("#{bin}/agent-posthog completion zsh")
   end
