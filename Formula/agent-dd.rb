@@ -1,28 +1,28 @@
 class AgentDd < Formula
   desc "Datadog triage CLI for AI agents"
   homepage "https://github.com/shhac/agent-dd"
-  version "0.10.0"
+  version "0.11.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-dd/releases/download/v0.10.0/agent-dd-darwin-arm64.tar.gz"
-      sha256 "29e21ab1015eccd103e8d6f72bad4932b2b03c9d096ebc72395c63a73a22a1b8"
+      url "https://github.com/shhac/agent-dd/releases/download/v0.11.0/agent-dd-darwin-arm64.tar.gz"
+      sha256 "d57a749ed7a9aad097d08ae87f61ed91da8762e6f58369a84a0f205981e39b60"
     end
     on_intel do
-      url "https://github.com/shhac/agent-dd/releases/download/v0.10.0/agent-dd-darwin-amd64.tar.gz"
-      sha256 "b64474421e66aa3074dd0117bad8a2364dcd24cb03da3aa3a9ce23026a0a2c2f"
+      url "https://github.com/shhac/agent-dd/releases/download/v0.11.0/agent-dd-darwin-amd64.tar.gz"
+      sha256 "4beb39cace8fb32608c4144c7cb85205b0c3a3b1ef212d0cee2e9a860b7d3408"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-dd/releases/download/v0.10.0/agent-dd-linux-arm64.tar.gz"
-      sha256 "7913cde823d1b707acf8984ca370a4e988c2d326bbaaebd3eaf85aecdc1bf0db"
+      url "https://github.com/shhac/agent-dd/releases/download/v0.11.0/agent-dd-linux-arm64.tar.gz"
+      sha256 "06f8543c51c2cfe481820ed67e196f0ca9812290cea5389b50e8adbceeaed44b"
     end
     on_intel do
-      url "https://github.com/shhac/agent-dd/releases/download/v0.10.0/agent-dd-linux-amd64.tar.gz"
-      sha256 "4e5897c852201c43aeea5d104116aa703c6778b1980e735fc579b8b832e7db10"
+      url "https://github.com/shhac/agent-dd/releases/download/v0.11.0/agent-dd-linux-amd64.tar.gz"
+      sha256 "615dc75c55966e95c1414f84a29aeb1d0c786c8b4d19c8cb2243ef8b8a72ef58"
     end
   end
 
@@ -33,7 +33,7 @@ class AgentDd < Formula
   end
 
   test do
-    assert_match "0.10.0", shell_output("#{bin}/agent-dd --version")
+    assert_match "0.11.0", shell_output("#{bin}/agent-dd --version")
     assert_match "Datadog triage CLI", shell_output("#{bin}/agent-dd --help")
     assert_match "#compdef agent-dd", shell_output("#{bin}/agent-dd completion zsh")
   end
