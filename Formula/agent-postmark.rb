@@ -1,28 +1,28 @@
 class AgentPostmark < Formula
   desc "Postmark delivery triage CLI for AI agents"
   homepage "https://github.com/shhac/agent-postmark"
-  version "0.14.0"
+  version "0.15.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-postmark/releases/download/v0.14.0/agent-postmark-darwin-arm64.tar.gz"
-      sha256 "5f5fe0b280889016e2be7c53a813b2d417e7cd1332ed329a6a311277ab67b83e"
+      url "https://github.com/shhac/agent-postmark/releases/download/v0.15.0/agent-postmark-darwin-arm64.tar.gz"
+      sha256 "8963711d7fbd4eb1774e28459951bda4e9cc085010c56f98e9a22b22e186b364"
     end
     on_intel do
-      url "https://github.com/shhac/agent-postmark/releases/download/v0.14.0/agent-postmark-darwin-amd64.tar.gz"
-      sha256 "aab1ef8d848a5a0aa93ffd06ac6c9ea8cb83c0d5d6840986e966ee22526ff42e"
+      url "https://github.com/shhac/agent-postmark/releases/download/v0.15.0/agent-postmark-darwin-amd64.tar.gz"
+      sha256 "80b635f5d173a395cb673f0a10f56c21164f06bb8aa3f8646cc5e768d0df38df"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-postmark/releases/download/v0.14.0/agent-postmark-linux-arm64.tar.gz"
-      sha256 "8ca01c0dc136b7432b3918c358e4bb7314c5bd27995567ffc23f0f6b2cc72a5a"
+      url "https://github.com/shhac/agent-postmark/releases/download/v0.15.0/agent-postmark-linux-arm64.tar.gz"
+      sha256 "ce2f43d2106b51e935da8cf82d337675af7ef5552bace546dd3bec84cec0189c"
     end
     on_intel do
-      url "https://github.com/shhac/agent-postmark/releases/download/v0.14.0/agent-postmark-linux-amd64.tar.gz"
-      sha256 "04cfa61b1ec91b06c1f452effc78e548c0e392e5f9d4483669f4579301176e89"
+      url "https://github.com/shhac/agent-postmark/releases/download/v0.15.0/agent-postmark-linux-amd64.tar.gz"
+      sha256 "667720d9e364df4858db5f9e8941cc1d61dcf183046ade34ba806742a0fd1d92"
     end
   end
 
@@ -33,7 +33,7 @@ class AgentPostmark < Formula
   end
 
   test do
-    assert_match "0.14.0", shell_output("#{bin}/agent-postmark --version")
+    assert_match "0.15.0", shell_output("#{bin}/agent-postmark --version")
     assert_match "Postmark delivery triage CLI", shell_output("#{bin}/agent-postmark --help")
     assert_match "#compdef agent-postmark", shell_output("#{bin}/agent-postmark completion zsh")
   end
