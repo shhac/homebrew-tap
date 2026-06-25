@@ -1,28 +1,28 @@
 class AgentStatsig < Formula
   desc "Statsig feature flag CLI for AI agents"
   homepage "https://github.com/shhac/agent-statsig"
-  version "0.12.1"
+  version "0.13.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-statsig/releases/download/v0.12.1/agent-statsig-darwin-arm64.tar.gz"
-      sha256 "763cffdf118d19a726d1b75ce915c83b2e43d9dc4ce73da2e4f7d08fa19f0f52"
+      url "https://github.com/shhac/agent-statsig/releases/download/v0.13.0/agent-statsig-darwin-arm64.tar.gz"
+      sha256 "b793496e4d4c8cadd16a75c1c43d8e7b85f8435d3df8564a20c0bc0f90fd6a3d"
     end
     on_intel do
-      url "https://github.com/shhac/agent-statsig/releases/download/v0.12.1/agent-statsig-darwin-amd64.tar.gz"
-      sha256 "ffcce17de78d14b54a51ab056238500e58dd330bc63a0ea5445b3f856b64cfd6"
+      url "https://github.com/shhac/agent-statsig/releases/download/v0.13.0/agent-statsig-darwin-amd64.tar.gz"
+      sha256 "0ce54fdb4ce57f4288c39371572a21a8902545eeb0771195426cec26e2cba4de"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-statsig/releases/download/v0.12.1/agent-statsig-linux-arm64.tar.gz"
-      sha256 "09766b428e30d5cb4a38a6b6255a6cb883cb8782d86c00ef3a1778795a7273cb"
+      url "https://github.com/shhac/agent-statsig/releases/download/v0.13.0/agent-statsig-linux-arm64.tar.gz"
+      sha256 "376b7b9cec3c9622dcce67d8b1c2c59430b84e639f6416a75eaa510ecdb00722"
     end
     on_intel do
-      url "https://github.com/shhac/agent-statsig/releases/download/v0.12.1/agent-statsig-linux-amd64.tar.gz"
-      sha256 "0feb0e05d37be69aae2b07b2e5e814294549008ae2fd5a6b49f820eebdf5934b"
+      url "https://github.com/shhac/agent-statsig/releases/download/v0.13.0/agent-statsig-linux-amd64.tar.gz"
+      sha256 "920275100334fd933dd7854983bb01a86cfe383abbc4cdc3b0b71d3f94586533"
     end
   end
 
@@ -33,7 +33,7 @@ class AgentStatsig < Formula
   end
 
   test do
-    assert_match "0.12.1", shell_output("#{bin}/agent-statsig --version")
+    assert_match "0.13.0", shell_output("#{bin}/agent-statsig --version")
     assert_match "Statsig feature flag CLI", shell_output("#{bin}/agent-statsig --help")
     assert_match "#compdef agent-statsig", shell_output("#{bin}/agent-statsig completion zsh")
   end
