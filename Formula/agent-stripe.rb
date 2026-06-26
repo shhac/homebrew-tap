@@ -2,7 +2,7 @@ class AgentStripe < Formula
   desc "Stripe incident triage CLI for AI agents"
   homepage "https://github.com/shhac/agent-stripe"
   version "0.16.0"
-  license "MIT"
+  license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do
     on_arm do
