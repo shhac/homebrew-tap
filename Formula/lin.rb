@@ -1,28 +1,28 @@
 class Lin < Formula
   desc "Linear CLI for humans and LLMs"
   homepage "https://github.com/shhac/lin"
-  version "0.30.0"
-  license "LicenseRef-PolyForm-Perimeter-1.0.0"
+  version "0.31.0"
+  license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/lin/releases/download/v0.30.0/lin-darwin-arm64.tar.gz"
-      sha256 "67a34b0fb76029a564a43f7de27fd8097f742187d61125a5d1a3ba8619b296f6"
+      url "https://github.com/shhac/lin/releases/download/v0.31.0/lin-darwin-arm64.tar.gz"
+      sha256 "da6ed7e49cb3ed01fa30c9b132ecdbcf7209457ac372f77e806b4cca0a525ebf"
     end
     on_intel do
-      url "https://github.com/shhac/lin/releases/download/v0.30.0/lin-darwin-amd64.tar.gz"
-      sha256 "adffb336fce5bbd992cb652043f96f6930df2a4c01ceb14bd95efcd55e36ad66"
+      url "https://github.com/shhac/lin/releases/download/v0.31.0/lin-darwin-amd64.tar.gz"
+      sha256 "337b6c4ebb23c3810a3530a55c4903ccd932d0cf0c3cbcf84786ef9e96013afb"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/lin/releases/download/v0.30.0/lin-linux-arm64.tar.gz"
-      sha256 "1f018f7503571c27507255add3d7a098ebf62844649f6d8ebea8d2dccc26d634"
+      url "https://github.com/shhac/lin/releases/download/v0.31.0/lin-linux-arm64.tar.gz"
+      sha256 "33f664b5fa25992c6b780e6109ac9cf58c41df01b6be5447c65cece347a970fb"
     end
     on_intel do
-      url "https://github.com/shhac/lin/releases/download/v0.30.0/lin-linux-amd64.tar.gz"
-      sha256 "a15c47ff1737ecc2f1aa88d7cab06ccde0b006ad3a5eb162cbeaf17839e381b9"
+      url "https://github.com/shhac/lin/releases/download/v0.31.0/lin-linux-amd64.tar.gz"
+      sha256 "b0d85b9d1495751f3642daeb24b47f81560f1090c782281c4323e9482704e96a"
     end
   end
 
@@ -33,7 +33,7 @@ class Lin < Formula
   end
 
   test do
-    assert_match "0.30.0", shell_output("#{bin}/lin --version")
+    assert_match "0.31.0", shell_output("#{bin}/lin --version")
     assert_match "Linear CLI for humans and LLMs", shell_output("#{bin}/lin --help")
     assert_match "#compdef lin", shell_output("#{bin}/lin completion zsh")
   end
