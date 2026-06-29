@@ -1,28 +1,28 @@
 class AgentVercel < Formula
   desc "Vercel CLI for AI agents"
   homepage "https://github.com/shhac/agent-vercel"
-  version "0.14.1"
+  version "0.15.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-vercel/releases/download/v0.14.1/agent-vercel-darwin-arm64.tar.gz"
-      sha256 "6077f20a4ef3d10900c1f4f9d8fd607c128c65f05f8d35145a042d0b49020a4c"
+      url "https://github.com/shhac/agent-vercel/releases/download/v0.15.0/agent-vercel-darwin-arm64.tar.gz"
+      sha256 "368c0d3f85fc3608e7bac7d87c0ec47837b6ed1aeb1c34051bc258e22388e737"
     end
     on_intel do
-      url "https://github.com/shhac/agent-vercel/releases/download/v0.14.1/agent-vercel-darwin-amd64.tar.gz"
-      sha256 "29eb1776c1e39766cd855237a6c86d43c494337f0baa0e39e9a17d69805e8d85"
+      url "https://github.com/shhac/agent-vercel/releases/download/v0.15.0/agent-vercel-darwin-amd64.tar.gz"
+      sha256 "a6c4f5c75b5e1315270b97e334b0a4df11a9464fd2ec7ba5c791d51d36feebbb"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-vercel/releases/download/v0.14.1/agent-vercel-linux-arm64.tar.gz"
-      sha256 "bc763f7f828c081ea8a15f1743308e90441f0df090bb51dac576218aef340eaa"
+      url "https://github.com/shhac/agent-vercel/releases/download/v0.15.0/agent-vercel-linux-arm64.tar.gz"
+      sha256 "dc80db50551d05be8519d079f85452d373cc4a4ce15d5101ff704c2c104881ee"
     end
     on_intel do
-      url "https://github.com/shhac/agent-vercel/releases/download/v0.14.1/agent-vercel-linux-amd64.tar.gz"
-      sha256 "15f04bb35a2b71e17e5ec8bc966525612a86ad8154ce353a4fcf9100ab918ab5"
+      url "https://github.com/shhac/agent-vercel/releases/download/v0.15.0/agent-vercel-linux-amd64.tar.gz"
+      sha256 "231cd3dff7cd6d49f9c70704baebab76de1fb062b9a7f7e526f717959f37d1c4"
     end
   end
 
@@ -33,7 +33,7 @@ class AgentVercel < Formula
   end
 
   test do
-    assert_match "0.14.1", shell_output("#{bin}/agent-vercel --version")
+    assert_match "0.15.0", shell_output("#{bin}/agent-vercel --version")
     assert_match "Vercel CLI for AI agents", shell_output("#{bin}/agent-vercel --help")
     assert_match "#compdef agent-vercel", shell_output("#{bin}/agent-vercel completion zsh")
   end
