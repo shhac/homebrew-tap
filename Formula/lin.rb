@@ -1,28 +1,28 @@
 class Lin < Formula
   desc "Linear CLI for humans and LLMs"
   homepage "https://github.com/shhac/lin"
-  version "0.34.0"
+  version "0.34.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/lin/releases/download/v0.34.0/lin-darwin-arm64.tar.gz"
-      sha256 "928c94cfab6bf6254ec64b6200b154606d0f706b2d0a4096701c116fabcf99db"
+      url "https://github.com/shhac/lin/releases/download/v0.34.1/lin-darwin-arm64.tar.gz"
+      sha256 "657993da5716597fbc458ea64e39bb5578ce8cff439a7b472a4ce8f2e1522df8"
     end
     on_intel do
-      url "https://github.com/shhac/lin/releases/download/v0.34.0/lin-darwin-amd64.tar.gz"
-      sha256 "cbf1157ec49cd574efd896c1f97ba678ce3c50a9d8246888981bb32d11fec15e"
+      url "https://github.com/shhac/lin/releases/download/v0.34.1/lin-darwin-amd64.tar.gz"
+      sha256 "540678e4e02e80fc16f86aa9f1ad8484cc78fe1d683540beaf523318de4ab272"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/lin/releases/download/v0.34.0/lin-linux-arm64.tar.gz"
-      sha256 "eba5aca6e5e622ac4876ce8eab161b65463e2f489f944fc5ec8dbcfd9c0515c3"
+      url "https://github.com/shhac/lin/releases/download/v0.34.1/lin-linux-arm64.tar.gz"
+      sha256 "a2f7265907699087b2758cb3bbf93cb5fd27d5d9e3976e2a0c7835cb4404a099"
     end
     on_intel do
-      url "https://github.com/shhac/lin/releases/download/v0.34.0/lin-linux-amd64.tar.gz"
-      sha256 "45344d385407388b6ced4fadc9daf295bd33d599028898f8f89974eb96776e1d"
+      url "https://github.com/shhac/lin/releases/download/v0.34.1/lin-linux-amd64.tar.gz"
+      sha256 "b268edf4f934286642c42f76b3a1d3332aa774bf0826295c71c0b0988f5a8834"
     end
   end
 
@@ -33,7 +33,7 @@ class Lin < Formula
   end
 
   test do
-    assert_match "0.34.0", shell_output("#{bin}/lin --version")
+    assert_match "0.34.1", shell_output("#{bin}/lin --version")
     assert_match "Linear CLI for humans and LLMs", shell_output("#{bin}/lin --help")
     assert_match "#compdef lin", shell_output("#{bin}/lin completion zsh")
   end
