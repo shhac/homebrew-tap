@@ -2,7 +2,7 @@ class AgentMongo < Formula
   desc "Read-only MongoDB CLI for AI agents"
   homepage "https://github.com/shhac/agent-mongo"
   version "0.8.5"
-  license "MIT"
+  license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do
     on_arm do
