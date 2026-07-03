@@ -5,23 +5,23 @@ class GitHunk < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/git-hunk/releases/download/v0.15.0/git-hunk-aarch64-macos.tar.gz"
-      sha256 "e2216788a3a45fe217dfe7e992cda0f176582fec5343c430944996e19a3ae6ea"
+      url "https://github.com/shhac/git-hunk/releases/download/v0.15.1/git-hunk-aarch64-macos.tar.gz"
+      sha256 "7a375e2e3e93a21b0054b3c779a23a7aaa1816468bcdb954b40b2671a06fc70d"
     end
     on_intel do
-      url "https://github.com/shhac/git-hunk/releases/download/v0.15.0/git-hunk-x86_64-macos.tar.gz"
-      sha256 "5450a92b718d001f768429c88a5a6f9fc93b45e0452eff626458770e8b8da0fc"
+      url "https://github.com/shhac/git-hunk/releases/download/v0.15.1/git-hunk-x86_64-macos.tar.gz"
+      sha256 "f0372d2d590ea486ebf7f7d80900fc0f260e7368421508ce718c5e7586f878be"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/git-hunk/releases/download/v0.15.0/git-hunk-aarch64-linux.tar.gz"
-      sha256 "926939205c3885a516eaaea42d8afc4cffee43134b0b2673864634b7a08ed7d2"
+      url "https://github.com/shhac/git-hunk/releases/download/v0.15.1/git-hunk-aarch64-linux.tar.gz"
+      sha256 "11c5b585588216ecf3091315d1e208301c5c839a9c22c74383469cb7bf2ce79f"
     end
     on_intel do
-      url "https://github.com/shhac/git-hunk/releases/download/v0.15.0/git-hunk-x86_64-linux.tar.gz"
-      sha256 "d6e10004308908fdd63351bafe918e490cffdf5cc8c09218557ba766b699017d"
+      url "https://github.com/shhac/git-hunk/releases/download/v0.15.1/git-hunk-x86_64-linux.tar.gz"
+      sha256 "e4ea9ee6d02f739376e55542cd323e0e906e4e0d17a5a1c15c709360060b532b"
     end
   end
 
@@ -36,6 +36,6 @@ class GitHunk < Formula
   end
 
   test do
-    assert_match "git-hunk 0.15.0", shell_output("#{bin}/git-hunk --version")
+    assert_match "git-hunk 0.15.1", shell_output("#{bin}/git-hunk --version")
   end
 end
