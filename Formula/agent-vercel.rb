@@ -2,7 +2,7 @@ class AgentVercel < Formula
   desc "Vercel CLI for AI agents"
   homepage "https://github.com/shhac/agent-vercel"
   version "0.15.0"
-  license "MIT"
+  license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do
     on_arm do

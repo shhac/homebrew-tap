@@ -2,7 +2,7 @@ class AgentIncident < Formula
   desc "incident.io triage CLI for AI agents"
   homepage "https://github.com/shhac/agent-incident"
   version "0.15.0"
-  license "MIT"
+  license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do
     on_arm do

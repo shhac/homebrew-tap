@@ -2,7 +2,7 @@ class AgentCloudflare < Formula
   desc "Cloudflare operations CLI for AI agents"
   homepage "https://github.com/shhac/agent-cloudflare"
   version "0.12.1"
-  license "MIT"
+  license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do
     on_arm do
