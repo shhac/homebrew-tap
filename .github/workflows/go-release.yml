@@ -40,10 +40,10 @@ on:
         type: string
         default: ""
       license:
-        description: "SPDX license id for the formula"
+        description: "SPDX license id for the formula (default: auto-detected from the repo's LICENSE file)"
         required: false
         type: string
-        default: "MIT"
+        default: ""
 
 jobs:
   release:
@@ -111,6 +111,19 @@ jobs:
             echo "::notice::TAP_DEPLOY_KEY not set — skipping tap update (delete the secret to disable publishing)."
             exit 0
           fi
+          # The formula is regenerated wholesale on every release, so a wrong
+          # license here silently overwrites any hand-fix in the tap. Detect it
+          # from the caller's LICENSE file (the source of truth) unless the
+          # input pins it explicitly; refuse to guess anything else.
+          if [ -z "${LICENSE}" ]; then
+            case "$(head -1 LICENSE 2>/dev/null || true)" in
+              *"PolyForm Perimeter"*) LICENSE="LicenseRef-PolyForm-Perimeter-1.0.0" ;;
+              *MIT*) LICENSE="MIT" ;;
+              *) echo "::error::cannot detect the license from LICENSE's first line — pass inputs.license explicitly" >&2
+                 exit 1 ;;
+            esac
+          fi
+          echo "formula license: ${LICENSE}"
           VERSION="${GITHUB_REF_NAME#v}"
           sha() { sha256sum "dist/${NAME}-$1.tar.gz" | cut -d' ' -f1; }
           MACOS_ARM="$(sha darwin-arm64)"; MACOS_X86="$(sha darwin-amd64)"
