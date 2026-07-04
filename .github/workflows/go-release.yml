@@ -115,20 +115,40 @@ jobs:
           # license here silently overwrites any hand-fix in the tap. Detect it
           # from the caller's LICENSE file (the source of truth) unless the
           # input pins it explicitly; refuse to guess anything else.
-          # First-line matching only — GPL-family licenses are deliberately
-          # absent (their version is on line 2, so line 1 can't disambiguate).
+          # Detection scans the LICENSE header (first 10 lines, whitespace-
+          # normalized) so GPL-family versions on line 2 disambiguate too.
+          # GPL matches claim the conservative "-only"; a repo granting
+          # "-or-later" must pin it via inputs.license. Most-specific first.
           if [ -z "${LICENSE}" ]; then
-            case "$(head -1 LICENSE 2>/dev/null || true)" in
+            lic_file="LICENSE"
+            for f in LICENSE LICENSE.md LICENSE.txt COPYING; do
+              if [ -f "$f" ]; then lic_file="$f"; break; fi
+            done
+            hdr="$(head -10 "${lic_file}" 2>/dev/null | tr '\n' ' ' | tr -s ' ' || true)"
+            case "${hdr}" in
               *"PolyForm Perimeter"*)       LICENSE="LicenseRef-PolyForm-Perimeter-1.0.0" ;;
               *"PolyForm Noncommercial"*)   LICENSE="PolyForm-Noncommercial-1.0.0" ;;
               *"PolyForm Small Business"*)  LICENSE="PolyForm-Small-Business-1.0.0" ;;
-              *MIT*)                        LICENSE="MIT" ;;
-              *"Apache License"*)           LICENSE="Apache-2.0" ;;
+              *"GNU AFFERO GENERAL PUBLIC LICENSE"*"Version 3"*)  LICENSE="AGPL-3.0-only" ;;
+              *"GNU LESSER GENERAL PUBLIC LICENSE"*"Version 3"*)  LICENSE="LGPL-3.0-only" ;;
+              *"GNU LESSER GENERAL PUBLIC LICENSE"*"Version 2.1"*) LICENSE="LGPL-2.1-only" ;;
+              *"GNU GENERAL PUBLIC LICENSE"*"Version 3"*)         LICENSE="GPL-3.0-only" ;;
+              *"GNU GENERAL PUBLIC LICENSE"*"Version 2"*)         LICENSE="GPL-2.0-only" ;;
+              *"Apache License"*"Version 2.0"*)                   LICENSE="Apache-2.0" ;;
+              *"Mozilla Public License Version 2.0"*)             LICENSE="MPL-2.0" ;;
+              *"Eclipse Public License - v 2.0"*)                 LICENSE="EPL-2.0" ;;
+              *"Boost Software License - Version 1.0"*)           LICENSE="BSL-1.0" ;;
               *"BSD 3-Clause"*)             LICENSE="BSD-3-Clause" ;;
               *"BSD 2-Clause"*)             LICENSE="BSD-2-Clause" ;;
               *"ISC License"*)              LICENSE="ISC" ;;
-              *"Mozilla Public License Version 2.0"*) LICENSE="MPL-2.0" ;;
-              *) echo "::error::cannot detect the license from LICENSE's first line — pass inputs.license explicitly" >&2
+              *"MIT No Attribution"*)       LICENSE="MIT-0" ;;
+              *MIT*)                        LICENSE="MIT" ;;
+              *"CC0 1.0"*)                  LICENSE="CC0-1.0" ;;
+              *"Attribution-ShareAlike 4.0 International"*) LICENSE="CC-BY-SA-4.0" ;;
+              *"Attribution 4.0 International"*)            LICENSE="CC-BY-4.0" ;;
+              *"free and unencumbered software released into the public domain"*) LICENSE="Unlicense" ;;
+              *"zlib License"*)             LICENSE="Zlib" ;;
+              *) echo "::error::cannot detect the license from LICENSE's header — pass inputs.license explicitly" >&2
                  exit 1 ;;
             esac
           fi
