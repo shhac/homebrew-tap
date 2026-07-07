@@ -1,28 +1,28 @@
 class AgentIncident < Formula
   desc "incident.io triage CLI for AI agents"
   homepage "https://github.com/shhac/agent-incident"
-  version "0.15.0"
+  version "0.15.1"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-incident/releases/download/v0.15.0/agent-incident-darwin-arm64.tar.gz"
-      sha256 "45af283b0652fbdd326ecc1451c2eec873ee39d0151ebc12fffbfe9bdf5dc579"
+      url "https://github.com/shhac/agent-incident/releases/download/v0.15.1/agent-incident-darwin-arm64.tar.gz"
+      sha256 "d44cef4e85220bb85a9708f4244f8d7c7000bc1e678e3c69b34f4a940dcbaccb"
     end
     on_intel do
-      url "https://github.com/shhac/agent-incident/releases/download/v0.15.0/agent-incident-darwin-amd64.tar.gz"
-      sha256 "fa6bdafda49b7224a53b7af6c98760e807544c49caa76eee746be3f5803cc311"
+      url "https://github.com/shhac/agent-incident/releases/download/v0.15.1/agent-incident-darwin-amd64.tar.gz"
+      sha256 "8f28051d925968507245d1a3c3ef8e8e7226fc64b9ef90017d6084570dba6540"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-incident/releases/download/v0.15.0/agent-incident-linux-arm64.tar.gz"
-      sha256 "139a1fd0c6e577cea90ed58c13f95e42b639e241c6caa7b01dccc50765487ca9"
+      url "https://github.com/shhac/agent-incident/releases/download/v0.15.1/agent-incident-linux-arm64.tar.gz"
+      sha256 "bc21f879bd6c4888f0f24dd556bb02244ade4a10bd92b55dc1df0bb4c9e2604b"
     end
     on_intel do
-      url "https://github.com/shhac/agent-incident/releases/download/v0.15.0/agent-incident-linux-amd64.tar.gz"
-      sha256 "8ba224727aa255fc3dbe314fae7c656bda845dd41bb483a55ef0f261cfe9da1f"
+      url "https://github.com/shhac/agent-incident/releases/download/v0.15.1/agent-incident-linux-amd64.tar.gz"
+      sha256 "c612b8d821079d4312d5b1d7f9a082ae5ee95aae6712c44967bd2e0886c35e8c"
     end
   end
 
@@ -33,7 +33,7 @@ class AgentIncident < Formula
   end
 
   test do
-    assert_match "0.15.0", shell_output("#{bin}/agent-incident --version")
+    assert_match "0.15.1", shell_output("#{bin}/agent-incident --version")
     assert_match "incident.io triage CLI", shell_output("#{bin}/agent-incident --help")
     assert_match "#compdef agent-incident", shell_output("#{bin}/agent-incident completion zsh")
   end
