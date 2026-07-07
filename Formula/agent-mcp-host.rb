@@ -1,28 +1,28 @@
 class AgentMcpHost < Formula
   desc "One-origin MCP host for the agent-* CLI family"
   homepage "https://github.com/shhac/agent-mcp-host"
-  version "0.6.2"
+  version "0.6.3"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-mcp-host/releases/download/v0.6.2/agent-mcp-host-darwin-arm64.tar.gz"
-      sha256 "65f72ab9cc431eeb58d61901b26047d0f406363087d488dbe411fc74606ef745"
+      url "https://github.com/shhac/agent-mcp-host/releases/download/v0.6.3/agent-mcp-host-darwin-arm64.tar.gz"
+      sha256 "e144669beeba912cf689db6ea4d64b4ac49cd290475bd2ee85277229a5fd6e97"
     end
     on_intel do
-      url "https://github.com/shhac/agent-mcp-host/releases/download/v0.6.2/agent-mcp-host-darwin-amd64.tar.gz"
-      sha256 "0d4439fd379593e2fb3d600885d52acc2f7966711b2d5ae2cb8b7d4b1b6f14ea"
+      url "https://github.com/shhac/agent-mcp-host/releases/download/v0.6.3/agent-mcp-host-darwin-amd64.tar.gz"
+      sha256 "2294861df3390479e48c77ea59b2cfe1bbb46d6e126fa3e1cef7c6948540aa6d"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-mcp-host/releases/download/v0.6.2/agent-mcp-host-linux-arm64.tar.gz"
-      sha256 "eb7a931826d0957bb85f4bcc5e69959d0fc264fc92707ec3b1c46a43fdbef574"
+      url "https://github.com/shhac/agent-mcp-host/releases/download/v0.6.3/agent-mcp-host-linux-arm64.tar.gz"
+      sha256 "2471c3ee4f5d436b74d14ff9dc9e47c3dfccc6a2af5b8948d7fc8ca5acb056b9"
     end
     on_intel do
-      url "https://github.com/shhac/agent-mcp-host/releases/download/v0.6.2/agent-mcp-host-linux-amd64.tar.gz"
-      sha256 "fde7af5933db9c8dd58337eb02eb0697a2bbb68f9fbdb5f39555ac79ef364829"
+      url "https://github.com/shhac/agent-mcp-host/releases/download/v0.6.3/agent-mcp-host-linux-amd64.tar.gz"
+      sha256 "cd903279138cf816ce451e3d69f76b8863a08c0e1f2efc5929a594ad4195ad58"
     end
   end
 
@@ -33,7 +33,7 @@ class AgentMcpHost < Formula
   end
 
   test do
-    assert_match "0.6.2", shell_output("#{bin}/agent-mcp-host --version")
+    assert_match "0.6.3", shell_output("#{bin}/agent-mcp-host --version")
     assert_match "MCP host", shell_output("#{bin}/agent-mcp-host --help")
     assert_match "#compdef agent-mcp-host", shell_output("#{bin}/agent-mcp-host completion zsh")
   end
