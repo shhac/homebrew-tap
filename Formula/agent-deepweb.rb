@@ -1,28 +1,28 @@
 class AgentDeepweb < Formula
   desc "Authenticated HTTP CLI for AI agents (curl-with-auth)"
   homepage "https://github.com/shhac/agent-deepweb"
-  version "0.18.0"
+  version "0.18.1"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-deepweb/releases/download/v0.18.0/agent-deepweb-darwin-arm64.tar.gz"
-      sha256 "3f436c2b93a011809ec9f3137378134085f3d43b245b0b0455ba115f5896d7ef"
+      url "https://github.com/shhac/agent-deepweb/releases/download/v0.18.1/agent-deepweb-darwin-arm64.tar.gz"
+      sha256 "5f30205f2e84adb9e71ad4c73a147d305d6eb2f5c78bbc06dfb9d9698e333b81"
     end
     on_intel do
-      url "https://github.com/shhac/agent-deepweb/releases/download/v0.18.0/agent-deepweb-darwin-amd64.tar.gz"
-      sha256 "db34d0e2528a431f4fd1498d676d294a1a71d9649bd57285b347db93f1610879"
+      url "https://github.com/shhac/agent-deepweb/releases/download/v0.18.1/agent-deepweb-darwin-amd64.tar.gz"
+      sha256 "7e0169334232dfd51043b84f8a5cb49d2954662e1132c2269f45bcc5fa0d66eb"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-deepweb/releases/download/v0.18.0/agent-deepweb-linux-arm64.tar.gz"
-      sha256 "ddf88ddeeef0371786c5c066004d43229286fcd020773cc441f872336e9de698"
+      url "https://github.com/shhac/agent-deepweb/releases/download/v0.18.1/agent-deepweb-linux-arm64.tar.gz"
+      sha256 "47321128e6a169367d9e2f9c2b5bba0e719bb4889dcee8393fbfa836a095134a"
     end
     on_intel do
-      url "https://github.com/shhac/agent-deepweb/releases/download/v0.18.0/agent-deepweb-linux-amd64.tar.gz"
-      sha256 "f6ddb9125c610333a60750b9228fa3faecb4eafd704e0b0ed2346d6a2f8569ab"
+      url "https://github.com/shhac/agent-deepweb/releases/download/v0.18.1/agent-deepweb-linux-amd64.tar.gz"
+      sha256 "8aa8599ac66b937f557cb90fa68256b6be9b4d89a554173327d948d5a4129c4f"
     end
   end
 
@@ -33,7 +33,7 @@ class AgentDeepweb < Formula
   end
 
   test do
-    assert_match "0.18.0", shell_output("#{bin}/agent-deepweb --version")
+    assert_match "0.18.1", shell_output("#{bin}/agent-deepweb --version")
     assert_match "Authenticated HTTP fetcher", shell_output("#{bin}/agent-deepweb --help")
     assert_match "#compdef agent-deepweb", shell_output("#{bin}/agent-deepweb completion zsh")
   end
