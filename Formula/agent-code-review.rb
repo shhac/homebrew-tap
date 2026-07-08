@@ -1,28 +1,28 @@
 class AgentCodeReview < Formula
   desc "PR review queue + scheduler for AI agents"
   homepage "https://github.com/shhac/agent-code-review"
-  version "0.7.0"
+  version "0.8.0"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-code-review/releases/download/v0.7.0/agent-code-review-darwin-arm64.tar.gz"
-      sha256 "d0b77b36087577d3a9473f6c6483d912827d5a1d66588eae381db68036d98a92"
+      url "https://github.com/shhac/agent-code-review/releases/download/v0.8.0/agent-code-review-darwin-arm64.tar.gz"
+      sha256 "f5972257636fb57eb4bc48b4358faf5af1c52dc442d6e59e34f46f1a61288ae4"
     end
     on_intel do
-      url "https://github.com/shhac/agent-code-review/releases/download/v0.7.0/agent-code-review-darwin-amd64.tar.gz"
-      sha256 "fd27b35fb56865f8be4a69c44d21bc17eb6973773b0d554e3f3bf79841b634d7"
+      url "https://github.com/shhac/agent-code-review/releases/download/v0.8.0/agent-code-review-darwin-amd64.tar.gz"
+      sha256 "8a6212a032bb2601aa8a4b2dab1e47d52cd0da7020104978e2e8c1744e7ab986"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-code-review/releases/download/v0.7.0/agent-code-review-linux-arm64.tar.gz"
-      sha256 "59468bf2806d3f15bd0c710666c09108ab0715125fb397d0afa460df9704d273"
+      url "https://github.com/shhac/agent-code-review/releases/download/v0.8.0/agent-code-review-linux-arm64.tar.gz"
+      sha256 "206701506e42fc24d7a5b90e784ac8e067529f27e8e98f096cb5b6910bb71eb6"
     end
     on_intel do
-      url "https://github.com/shhac/agent-code-review/releases/download/v0.7.0/agent-code-review-linux-amd64.tar.gz"
-      sha256 "8d509bec7cfba7eb4a010da5bf8e4af6dd0188822990f45d366d916053fff2cd"
+      url "https://github.com/shhac/agent-code-review/releases/download/v0.8.0/agent-code-review-linux-amd64.tar.gz"
+      sha256 "4a3cde63b47239b6dd8a164c3f2635e16ddda87724c0453a433f643fe35ede88"
     end
   end
 
@@ -33,7 +33,7 @@ class AgentCodeReview < Formula
   end
 
   test do
-    assert_match "0.7.0", shell_output("#{bin}/agent-code-review --version")
+    assert_match "0.8.0", shell_output("#{bin}/agent-code-review --version")
     assert_match "PR review queue", shell_output("#{bin}/agent-code-review --help")
     assert_match "#compdef agent-code-review", shell_output("#{bin}/agent-code-review completion zsh")
   end
