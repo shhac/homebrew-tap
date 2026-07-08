@@ -1,28 +1,28 @@
 class AgentSql < Formula
   desc "Read-only SQL CLI for AI agents"
   homepage "https://github.com/shhac/agent-sql"
-  version "1.19.0"
+  version "1.19.1"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-sql/releases/download/v1.19.0/agent-sql-darwin-arm64.tar.gz"
-      sha256 "775d61a20d870855813e13247f949c994b928fcfc50503c3c3ae4dd29eccdd1c"
+      url "https://github.com/shhac/agent-sql/releases/download/v1.19.1/agent-sql-darwin-arm64.tar.gz"
+      sha256 "b22502ee55681e5d2a0d266bfae7aff77e03bdb38cd2f7edae1dff624f3eae34"
     end
     on_intel do
-      url "https://github.com/shhac/agent-sql/releases/download/v1.19.0/agent-sql-darwin-amd64.tar.gz"
-      sha256 "e279abc59c6979400c716914c8adfa3ed06ba41348018b6a8edce9e8c9100199"
+      url "https://github.com/shhac/agent-sql/releases/download/v1.19.1/agent-sql-darwin-amd64.tar.gz"
+      sha256 "35d53356aaba4d3ea2701ff8d7a9ebf310302d894007b60415400f840d2676aa"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-sql/releases/download/v1.19.0/agent-sql-linux-arm64.tar.gz"
-      sha256 "68691f50856ae98fe8225a3adec8cd4ecc71d1f719ec88da3b97c31f320e8bed"
+      url "https://github.com/shhac/agent-sql/releases/download/v1.19.1/agent-sql-linux-arm64.tar.gz"
+      sha256 "4389adaa71222192f5adf2d640f8adfeb99dcb34d8b846bdf6ee93e933112b39"
     end
     on_intel do
-      url "https://github.com/shhac/agent-sql/releases/download/v1.19.0/agent-sql-linux-amd64.tar.gz"
-      sha256 "93c9f26a83af9bdcfc58d52f3e1f1e13f132fd9bcc63342e19cfc3413c276bb8"
+      url "https://github.com/shhac/agent-sql/releases/download/v1.19.1/agent-sql-linux-amd64.tar.gz"
+      sha256 "b1cfe98f9f60dabf2de4f359dbb5768a18a4fc1c629d15fdcd75e05cb59d3de4"
     end
   end
 
@@ -33,7 +33,7 @@ class AgentSql < Formula
   end
 
   test do
-    assert_match "1.19.0", shell_output("#{bin}/agent-sql --version")
+    assert_match "1.19.1", shell_output("#{bin}/agent-sql --version")
     assert_match "Read-only-by-default SQL CLI", shell_output("#{bin}/agent-sql --help")
     assert_match "#compdef agent-sql", shell_output("#{bin}/agent-sql completion zsh")
   end
