@@ -1,28 +1,28 @@
 class AgentCodeReview < Formula
   desc "PR review queue + scheduler for AI agents"
   homepage "https://github.com/shhac/agent-code-review"
-  version "0.11.0"
+  version "0.11.1"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-code-review/releases/download/v0.11.0/agent-code-review-darwin-arm64.tar.gz"
-      sha256 "f3c734a223ca8e00e58266b6678c7135b97479fe1ba2a128f26e9bca001ab8bc"
+      url "https://github.com/shhac/agent-code-review/releases/download/v0.11.1/agent-code-review-darwin-arm64.tar.gz"
+      sha256 "6b0d47484e04217fc93da2f06c178c93acb303de7936c00cfd708507226861a1"
     end
     on_intel do
-      url "https://github.com/shhac/agent-code-review/releases/download/v0.11.0/agent-code-review-darwin-amd64.tar.gz"
-      sha256 "1306ffa7b48f93947407f1f91591698a433776dc693f7e006d550269d95dca42"
+      url "https://github.com/shhac/agent-code-review/releases/download/v0.11.1/agent-code-review-darwin-amd64.tar.gz"
+      sha256 "80180bf752bb33872b9b0a8f93c460378e20aa5252353599a22e0da2ef20f4ca"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-code-review/releases/download/v0.11.0/agent-code-review-linux-arm64.tar.gz"
-      sha256 "3d2600d55c2d07f4829a5b6e87bedc2bdc561095f36ec3913f3bbb4d42d77bf1"
+      url "https://github.com/shhac/agent-code-review/releases/download/v0.11.1/agent-code-review-linux-arm64.tar.gz"
+      sha256 "8e7baf068a5ea608177edd06582c600ecb418e68f367ba5e4c60ce15afe45efc"
     end
     on_intel do
-      url "https://github.com/shhac/agent-code-review/releases/download/v0.11.0/agent-code-review-linux-amd64.tar.gz"
-      sha256 "f58afd14f79901462d6b4be9df85b89046c34c2e4b022795cc888d6719e12b51"
+      url "https://github.com/shhac/agent-code-review/releases/download/v0.11.1/agent-code-review-linux-amd64.tar.gz"
+      sha256 "abd8b70362c86e9249db99dce59b59df9301b39ae0b839c075aa5679b55d2ddb"
     end
   end
 
@@ -33,7 +33,7 @@ class AgentCodeReview < Formula
   end
 
   test do
-    assert_match "0.11.0", shell_output("#{bin}/agent-code-review --version")
+    assert_match "0.11.1", shell_output("#{bin}/agent-code-review --version")
     assert_match "PR review queue", shell_output("#{bin}/agent-code-review --help")
     assert_match "#compdef agent-code-review", shell_output("#{bin}/agent-code-review completion zsh")
   end
