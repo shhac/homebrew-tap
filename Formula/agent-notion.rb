@@ -1,28 +1,28 @@
 class AgentNotion < Formula
   desc "Notion CLI for humans and LLMs"
   homepage "https://github.com/shhac/agent-notion"
-  version "0.8.1"
+  version "0.9.0"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-notion/releases/download/v0.8.1/agent-notion-darwin-arm64.tar.gz"
-      sha256 "15f85b23f17c9ac3efc4e4bdd2fc953e465175189b63ee2bbd43cc25a3c331b4"
+      url "https://github.com/shhac/agent-notion/releases/download/v0.9.0/agent-notion-darwin-arm64.tar.gz"
+      sha256 "f56b651353fb05b2b4c5d7edf201e20da3fea1e131cdde30a86693396bf434d5"
     end
     on_intel do
-      url "https://github.com/shhac/agent-notion/releases/download/v0.8.1/agent-notion-darwin-amd64.tar.gz"
-      sha256 "516ef34fd970c894d60d1dfa2b565ed9bfe4bf87872dd770fd88f5abc776d717"
+      url "https://github.com/shhac/agent-notion/releases/download/v0.9.0/agent-notion-darwin-amd64.tar.gz"
+      sha256 "5e9c7b200ccabf9dd1a47736243621472a971135c1680f2af53045e64348e28f"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-notion/releases/download/v0.8.1/agent-notion-linux-arm64.tar.gz"
-      sha256 "73fe9e98d6347f35e86580c0bf2a07e85a749ddc4f950a67e08e7051eaede179"
+      url "https://github.com/shhac/agent-notion/releases/download/v0.9.0/agent-notion-linux-arm64.tar.gz"
+      sha256 "4fdeec0aacd13bbc7ba51e47d01b192dd1c48b8e92bea9a29553e93a2684b4e9"
     end
     on_intel do
-      url "https://github.com/shhac/agent-notion/releases/download/v0.8.1/agent-notion-linux-amd64.tar.gz"
-      sha256 "f6f683971ea069a1ec9028e65d4535a6ff3c9e41cd4c0785fe52c02da47d7f19"
+      url "https://github.com/shhac/agent-notion/releases/download/v0.9.0/agent-notion-linux-amd64.tar.gz"
+      sha256 "408ddb20a0489c07e20922dc476d0f5533e9b2f2bd989b67e965fc9a5926c2a1"
     end
   end
 
@@ -33,7 +33,7 @@ class AgentNotion < Formula
   end
 
   test do
-    assert_match "0.8.1", shell_output("#{bin}/agent-notion --version")
+    assert_match "0.9.0", shell_output("#{bin}/agent-notion --version")
     assert_match "Notion CLI for humans and LLMs", shell_output("#{bin}/agent-notion --help")
     assert_match "#compdef agent-notion", shell_output("#{bin}/agent-notion completion zsh")
   end
