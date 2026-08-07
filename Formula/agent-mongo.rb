@@ -1,28 +1,28 @@
 class AgentMongo < Formula
   desc "Read-only MongoDB CLI for AI agents"
   homepage "https://github.com/shhac/agent-mongo"
-  version "0.12.0"
+  version "0.12.1"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-mongo/releases/download/v0.12.0/agent-mongo-darwin-arm64.tar.gz"
-      sha256 "994bb00a7fce32ce0459c7c4b0dd75356f7ea7a5a1daa38b310b5559f96a2154"
+      url "https://github.com/shhac/agent-mongo/releases/download/v0.12.1/agent-mongo-darwin-arm64.tar.gz"
+      sha256 "c9f6a4a33a5d92947c675fdace63b1aad7c700dc0fbef6df964a4a3f38b98735"
     end
     on_intel do
-      url "https://github.com/shhac/agent-mongo/releases/download/v0.12.0/agent-mongo-darwin-amd64.tar.gz"
-      sha256 "fa397c51ed93bfdb58b8f6059c2756eb2ce31678ec5b65b0b2d7e844606b17f1"
+      url "https://github.com/shhac/agent-mongo/releases/download/v0.12.1/agent-mongo-darwin-amd64.tar.gz"
+      sha256 "eafef51efbc020af693d52b49cdbad63449ea78cf44713c6049adc1fa6d519e5"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-mongo/releases/download/v0.12.0/agent-mongo-linux-arm64.tar.gz"
-      sha256 "dad94014b2a9f0d454e57d0d3b71735befee1c28387286f140c5ac831ad3ebea"
+      url "https://github.com/shhac/agent-mongo/releases/download/v0.12.1/agent-mongo-linux-arm64.tar.gz"
+      sha256 "9207ee485d7088193712dcf1c1c0fce61d05211c572a0e5945a2102f39b2d61a"
     end
     on_intel do
-      url "https://github.com/shhac/agent-mongo/releases/download/v0.12.0/agent-mongo-linux-amd64.tar.gz"
-      sha256 "4e812e824bd8091aa39ecfbb62068a9d1a198970cb66411db00df2d07e286597"
+      url "https://github.com/shhac/agent-mongo/releases/download/v0.12.1/agent-mongo-linux-amd64.tar.gz"
+      sha256 "5762473cd1c7dfebfc6092021d8412f990aac2c8048df0489cedf01ba8651780"
     end
   end
 
@@ -33,7 +33,7 @@ class AgentMongo < Formula
   end
 
   test do
-    assert_match "0.12.0", shell_output("#{bin}/agent-mongo --version")
+    assert_match "0.12.1", shell_output("#{bin}/agent-mongo --version")
     assert_match "Read-only MongoDB CLI for AI agents", shell_output("#{bin}/agent-mongo --help")
     assert_match "#compdef agent-mongo", shell_output("#{bin}/agent-mongo completion zsh")
   end
