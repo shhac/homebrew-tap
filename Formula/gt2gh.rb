@@ -27,14 +27,14 @@ class Gt2gh < Formula
   end
 
   def install
-    bin.install "gt2gh"
-    # Installs shell completions via `gt2gh completion bash|zsh|fish`.
-    generate_completions_from_executable(bin/"gt2gh", "completion")
+    bin.install "gt2gh" => "g2g"
+    # Installs shell completions via `g2g completion bash|zsh|fish`.
+    generate_completions_from_executable(bin/"g2g", "completion")
   end
 
   test do
-    assert_match "0.2.0", shell_output("#{bin}/gt2gh --version")
-    assert_match "Link a linear Graphite stack to GitHub", shell_output("#{bin}/gt2gh --help")
-    assert_match "#compdef gt2gh", shell_output("#{bin}/gt2gh completion zsh")
+    assert_match "0.2.0", shell_output("#{bin}/g2g --version")
+    assert_match "Link a linear Graphite stack to GitHub", shell_output("#{bin}/g2g --help")
+    assert_match "#compdef", shell_output("#{bin}/g2g completion zsh")
   end
 end

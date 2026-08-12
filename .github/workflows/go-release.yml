@@ -19,7 +19,7 @@ on:
   workflow_call:
     inputs:
       name:
-        description: "CLI + formula name, e.g. agent-vercel (binary, formula file, /shhac/<name>)"
+        description: "CLI + formula name, e.g. agent-vercel (release assets, formula file, /shhac/<name>)"
         required: true
         type: string
       desc:
@@ -34,6 +34,11 @@ on:
         description: "Substring the formula test asserts in `<name> --help`"
         required: true
         type: string
+      installed_binary_name:
+        description: "Installed binary name (default: name); use only when it differs from the release asset binary"
+        required: false
+        type: string
+        default: ""
       cmd_path:
         description: "main package path (default ./cmd/<name>)"
         required: false
@@ -103,6 +108,7 @@ jobs:
           DESC: ${{ inputs.desc }}
           KLASS: ${{ inputs.formula_class }}
           HELP_MATCH: ${{ inputs.help_match }}
+          BIN_NAME: ${{ inputs.installed_binary_name }}
           LICENSE: ${{ inputs.license }}
           TAP_DEPLOY_KEY: ${{ secrets.TAP_DEPLOY_KEY }}
         run: |
@@ -153,6 +159,12 @@ jobs:
             esac
           fi
           echo "formula license: ${LICENSE}"
+          BIN_NAME="${BIN_NAME:-$NAME}"
+          if [ "${BIN_NAME}" = "${NAME}" ]; then
+            BIN_INSTALL_AS=""
+          else
+            BIN_INSTALL_AS=" => \"${BIN_NAME}\""
+          fi
           VERSION="${GITHUB_REF_NAME#v}"
           sha() { sha256sum "dist/${NAME}-$1.tar.gz" | cut -d' ' -f1; }
           MACOS_ARM="$(sha darwin-arm64)"; MACOS_X86="$(sha darwin-amd64)"
@@ -188,15 +200,15 @@ jobs:
             end
 
             def install
-              bin.install "${NAME}"
-              # Installs shell completions via \`${NAME} completion bash|zsh|fish\`.
-              generate_completions_from_executable(bin/"${NAME}", "completion")
+              bin.install "${NAME}"${BIN_INSTALL_AS}
+              # Installs shell completions via \`${BIN_NAME} completion bash|zsh|fish\`.
+              generate_completions_from_executable(bin/"${BIN_NAME}", "completion")
             end
 
             test do
-              assert_match "${VERSION}", shell_output("#{bin}/${NAME} --version")
-              assert_match "${HELP_MATCH}", shell_output("#{bin}/${NAME} --help")
-              assert_match "#compdef ${NAME}", shell_output("#{bin}/${NAME} completion zsh")
+              assert_match "${VERSION}", shell_output("#{bin}/${BIN_NAME} --version")
+              assert_match "${HELP_MATCH}", shell_output("#{bin}/${BIN_NAME} --help")
+              assert_match "#compdef ${BIN_NAME}", shell_output("#{bin}/${BIN_NAME} completion zsh")
             end
           end
           EOF
