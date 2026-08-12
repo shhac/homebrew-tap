@@ -1,28 +1,28 @@
 class Gt2gh < Formula
   desc "Bridge Graphite-managed linear stacks to GitHub native stacks"
   homepage "https://github.com/shhac/gt2gh"
-  version "0.2.0"
+  version "0.2.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/gt2gh/releases/download/v0.2.0/gt2gh-darwin-arm64.tar.gz"
-      sha256 "83dff788b29c1188b3b2918670ba88129c8ee0172a92ffa63f1190cd39f44a1a"
+      url "https://github.com/shhac/gt2gh/releases/download/v0.2.1/gt2gh-darwin-arm64.tar.gz"
+      sha256 "ff92139a5ff24733805ea377b328e7835a67c63d20b8dd68eae4a228ccefc2ac"
     end
     on_intel do
-      url "https://github.com/shhac/gt2gh/releases/download/v0.2.0/gt2gh-darwin-amd64.tar.gz"
-      sha256 "d2eb7dac86ea815976c319466b833a53a5041b7aa820264bb9b62ac2b2725b90"
+      url "https://github.com/shhac/gt2gh/releases/download/v0.2.1/gt2gh-darwin-amd64.tar.gz"
+      sha256 "ad02a778d4f64e3c4ae454b7d8d7241a3259b978c897be316ef237f6cfe099dd"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/gt2gh/releases/download/v0.2.0/gt2gh-linux-arm64.tar.gz"
-      sha256 "99b58a983cda1f30901fbce3996bd2f23c81db85ac4779818a612f7619c98987"
+      url "https://github.com/shhac/gt2gh/releases/download/v0.2.1/gt2gh-linux-arm64.tar.gz"
+      sha256 "19798a75354de3a75b0c94d941eddfa9c6615832dd77a9df8986d92c0c8f6448"
     end
     on_intel do
-      url "https://github.com/shhac/gt2gh/releases/download/v0.2.0/gt2gh-linux-amd64.tar.gz"
-      sha256 "aeab5d63b38e7b287797832bccc1a7ccd6c3e9c35918192f75c6300bfd033ce8"
+      url "https://github.com/shhac/gt2gh/releases/download/v0.2.1/gt2gh-linux-amd64.tar.gz"
+      sha256 "6769662f3ac7bf8cb625c04797443dae6130c456b412b358ec8b2c1d537b2478"
     end
   end
 
@@ -33,8 +33,8 @@ class Gt2gh < Formula
   end
 
   test do
-    assert_match "0.2.0", shell_output("#{bin}/g2g --version")
+    assert_match "0.2.1", shell_output("#{bin}/g2g --version")
     assert_match "Link a linear Graphite stack to GitHub", shell_output("#{bin}/g2g --help")
-    assert_match "#compdef", shell_output("#{bin}/g2g completion zsh")
+    assert_match "#compdef g2g", shell_output("#{bin}/g2g completion zsh")
   end
 end
