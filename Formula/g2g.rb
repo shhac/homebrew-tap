@@ -1,4 +1,4 @@
-class Gt2gh < Formula
+class G2g < Formula
   desc "Manage stacked branches and project them onto GitHub native stacks"
   homepage "https://github.com/shhac/gt2gh"
   version "0.12.0"
