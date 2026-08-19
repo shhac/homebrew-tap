@@ -1,28 +1,28 @@
 class G2g < Formula
   desc "Manage stacked branches and project them onto GitHub native stacks"
   homepage "https://github.com/shhac/g2g"
-  version "0.19.0"
+  version "0.19.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/g2g/releases/download/v0.19.0/g2g-darwin-arm64.tar.gz"
-      sha256 "36d28953feab8ca90cb521162daaa3142da22919d7847033f2f3c4247efc23d2"
+      url "https://github.com/shhac/g2g/releases/download/v0.19.1/g2g-darwin-arm64.tar.gz"
+      sha256 "98ade28f1cc9c840a333d240bd3a3732021494735e74dff491d2119b02ecf154"
     end
     on_intel do
-      url "https://github.com/shhac/g2g/releases/download/v0.19.0/g2g-darwin-amd64.tar.gz"
-      sha256 "6dc6c600215e30121c3d3a0430e0ed0fd56a4db45516cc7a40dffa64ae92cc30"
+      url "https://github.com/shhac/g2g/releases/download/v0.19.1/g2g-darwin-amd64.tar.gz"
+      sha256 "661c0732df18ae4e053f90a620e80494e0a2a5597a21806599fcd804c07216ba"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/g2g/releases/download/v0.19.0/g2g-linux-arm64.tar.gz"
-      sha256 "748d3ff59f55be47e5f5dcff5cf18d2261c5367c920e3e787a4c82f8a971543e"
+      url "https://github.com/shhac/g2g/releases/download/v0.19.1/g2g-linux-arm64.tar.gz"
+      sha256 "ae7559e65eaa9edb316e07820d4e601c6773b91714ba27e0d03ef1ed2d00524e"
     end
     on_intel do
-      url "https://github.com/shhac/g2g/releases/download/v0.19.0/g2g-linux-amd64.tar.gz"
-      sha256 "d4dce7a7181e81217ee68a847eadaff3db28072f44092ef5948d19f7112f9c24"
+      url "https://github.com/shhac/g2g/releases/download/v0.19.1/g2g-linux-amd64.tar.gz"
+      sha256 "7edb4646d76f29c5ce0dd3b3ced36e995a4aa3ccb98138af0af1f8b704489413"
     end
   end
 
@@ -33,7 +33,7 @@ class G2g < Formula
   end
 
   test do
-    assert_match "0.19.0", shell_output("#{bin}/g2g --version")
+    assert_match "0.19.1", shell_output("#{bin}/g2g --version")
     assert_match "Link a stack to GitHub", shell_output("#{bin}/g2g --help")
     assert_match "#compdef g2g", shell_output("#{bin}/g2g completion zsh")
   end
