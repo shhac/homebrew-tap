@@ -1,39 +1,38 @@
 class Toss < Formula
   desc "Fast dice rolling CLI with colored output and reproducible rolls"
   homepage "https://github.com/shhac/toss"
-  version "0.5.1"
+  version "0.6.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/toss/releases/download/v0.5.1/toss-0.5.1-aarch64-macos.tar.gz"
-      sha256 "f70c94e142754535ccd7659da7f32daa1d9693a15258551405a5752319249a01"
+      url "https://github.com/shhac/toss/releases/download/v0.6.0/toss-0.6.0-aarch64-macos.tar.gz"
+      sha256 "755868d59bd75d962d1f5c2fd9e53057c93c481f2967b22881a9f6625063beb7"
     end
     on_intel do
-      url "https://github.com/shhac/toss/releases/download/v0.5.1/toss-0.5.1-x86_64-macos.tar.gz"
-      sha256 "789e2e186ae2dee63036d2d0e5581a91051f72c513801d4d558e6497dae4f417"
+      url "https://github.com/shhac/toss/releases/download/v0.6.0/toss-0.6.0-x86_64-macos.tar.gz"
+      sha256 "bd120499278757c5a23de0f13fbb298623fa287f257d02e59f31fabfa12c7e79"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/toss/releases/download/v0.5.1/toss-0.5.1-aarch64-linux-gnu.tar.gz"
-      sha256 "d9577be03a533db11a7e2a023c92f9f6d81c73b2ea29824575b260e0f52eeb50"
+      url "https://github.com/shhac/toss/releases/download/v0.6.0/toss-0.6.0-aarch64-linux-gnu.tar.gz"
+      sha256 "5ca5a02694b31ad1c6fc0de87bd1774bc61547200f93f09f9aa5a365ecfebd73"
     end
     on_intel do
-      url "https://github.com/shhac/toss/releases/download/v0.5.1/toss-0.5.1-x86_64-linux-gnu.tar.gz"
-      sha256 "8880282a7680970c4ef3a5b3a71b6f3793ee93a068acb3dd78a6999499ed0fdb"
+      url "https://github.com/shhac/toss/releases/download/v0.6.0/toss-0.6.0-x86_64-linux-gnu.tar.gz"
+      sha256 "b967726b1a5284c98a17d77c520321db0767a2ba634cd66d69fb3f9c7d47102f"
     end
   end
 
   def install
-    # Find the toss binary in the extracted directory
-    binary = Dir["**/toss"].first
-    bin.install binary
+    # Archives contain a versioned directory around the binary.
+    bin.install Dir["**/toss"].first
   end
 
   test do
-    assert_match "toss 0.5.1", shell_output("#{bin}/toss --version")
+    assert_match "toss 0.6.0", shell_output("#{bin}/toss --version")
     output = shell_output("#{bin}/toss --seed 42 1d6")
     assert_match(/\[.*1d6.*\]/, output)
   end
