@@ -1,7 +1,6 @@
 class GitWt < Formula
   desc "Fast CLI for managing git worktrees with enhanced features"
   homepage "https://github.com/shhac/git-wt"
-  version "0.14.2"
   license "MIT"
 
   on_macos do

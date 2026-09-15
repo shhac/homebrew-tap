@@ -226,12 +226,15 @@ jobs:
           sha() { sha256sum "dist/${NAME}-$1.tar.gz" | cut -d' ' -f1; }
           MACOS_ARM="$(sha darwin-arm64)"; MACOS_X86="$(sha darwin-amd64)"
           LINUX_ARM="$(sha linux-arm64)"; LINUX_X86="$(sha linux-amd64)"
+          # No `version` stanza: Homebrew scans it from these URLs, and an
+          # explicit one that agrees is a `brew audit` offence ("redundant with
+          # version scanned from URL"). ${VERSION} is still interpolated into
+          # the test block, which asserts the binary reports the released tag.
           base="https://github.com/shhac/${NAME}/releases/download/v${VERSION}"
           cat > "${NAME}.rb" <<EOF
           class ${KLASS} < Formula
             desc "${DESC}"
             homepage "https://github.com/shhac/${NAME}"
-            version "${VERSION}"
             license "${LICENSE}"
 
             on_macos do

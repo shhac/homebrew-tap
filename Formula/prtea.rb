@@ -1,7 +1,6 @@
 class Prtea < Formula
   desc "TUI for reviewing GitHub pull requests"
   homepage "https://github.com/shhac/prtea"
-  version "0.6.0"
   license "MIT"
 
   on_macos do

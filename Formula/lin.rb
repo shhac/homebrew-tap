@@ -1,7 +1,6 @@
 class Lin < Formula
   desc "Linear CLI for humans and LLMs"
   homepage "https://github.com/shhac/lin"
-  version "0.36.4"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do

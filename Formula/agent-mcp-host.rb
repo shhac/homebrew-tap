@@ -1,7 +1,6 @@
 class AgentMcpHost < Formula
   desc "One-origin MCP host for the agent-* CLI family"
   homepage "https://github.com/shhac/agent-mcp-host"
-  version "0.6.3"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do

@@ -1,7 +1,6 @@
 class AgentStatsig < Formula
   desc "Statsig feature flag CLI for AI agents"
   homepage "https://github.com/shhac/agent-statsig"
-  version "0.17.1"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do

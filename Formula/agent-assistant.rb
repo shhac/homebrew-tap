@@ -1,7 +1,6 @@
 class AgentAssistant < Formula
   desc "Personal AI assistant for coordinating project agents"
   homepage "https://github.com/shhac/agent-assistant"
-  version "0.1.0"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do

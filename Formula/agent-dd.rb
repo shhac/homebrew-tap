@@ -1,7 +1,6 @@
 class AgentDd < Formula
   desc "Datadog triage CLI for AI agents"
   homepage "https://github.com/shhac/agent-dd"
-  version "0.20.1"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do

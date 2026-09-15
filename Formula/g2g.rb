@@ -1,7 +1,6 @@
 class G2g < Formula
   desc "Manage stacked branches and project them onto GitHub native stacks"
   homepage "https://github.com/shhac/g2g"
-  version "0.29.0"
   license "MIT"
 
   on_macos do

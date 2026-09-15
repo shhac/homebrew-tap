@@ -1,7 +1,6 @@
 class Toss < Formula
   desc "Fast dice rolling CLI with colored output and reproducible rolls"
   homepage "https://github.com/shhac/toss"
-  version "0.6.0"
   license "MIT"
 
   on_macos do

@@ -1,7 +1,6 @@
 class AgentDeepweb < Formula
   desc "Authenticated HTTP CLI for AI agents (curl-with-auth)"
   homepage "https://github.com/shhac/agent-deepweb"
-  version "0.18.2"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do

@@ -1,7 +1,6 @@
 class AgentNotion < Formula
   desc "Notion CLI for humans and LLMs"
   homepage "https://github.com/shhac/agent-notion"
-  version "0.10.2"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do

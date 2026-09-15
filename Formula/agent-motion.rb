@@ -1,7 +1,6 @@
 class AgentMotion < Formula
   desc "Temporal video analysis CLI for AI agents"
   homepage "https://github.com/shhac/agent-motion"
-  version "0.1.1"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do

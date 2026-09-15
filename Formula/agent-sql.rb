@@ -1,7 +1,6 @@
 class AgentSql < Formula
   desc "Read-only SQL CLI for AI agents"
   homepage "https://github.com/shhac/agent-sql"
-  version "1.19.2"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do

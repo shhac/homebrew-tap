@@ -1,7 +1,6 @@
 class AgentFathom < Formula
   desc "Fathom meeting intelligence CLI for AI agents"
   homepage "https://github.com/shhac/agent-fathom"
-  version "0.2.1"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do

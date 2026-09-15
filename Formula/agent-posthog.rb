@@ -1,7 +1,6 @@
 class AgentPosthog < Formula
   desc "PostHog product analytics CLI for AI agents"
   homepage "https://github.com/shhac/agent-posthog"
-  version "0.13.2"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do

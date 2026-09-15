@@ -1,7 +1,6 @@
 class AgentCodeReview < Formula
   desc "PR review queue + scheduler for AI agents"
   homepage "https://github.com/shhac/agent-code-review"
-  version "0.41.0"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
 
   on_macos do
