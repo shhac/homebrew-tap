@@ -18,8 +18,8 @@ cask "grotto" do
   binary "Grotto.app/Contents/MacOS/grotto"
 
   # Strip quarantine flag — app is unsigned
-  postflight do
-    system_command "/usr/bin/xattr", args: ["-cr", "#{appdir}/Grotto.app"]
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-cr", "{{appdir}}/Grotto.app"]
   end
 
   zap trash: [
