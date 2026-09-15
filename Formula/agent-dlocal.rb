@@ -1,5 +1,5 @@
 class AgentDlocal < Formula
-  desc "dLocal payments investigation and triage CLI for AI agents"
+  desc "Triage CLI for dLocal payments, built for AI agents"
   homepage "https://github.com/shhac/agent-dlocal"
   version "0.2.1"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"

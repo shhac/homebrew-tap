@@ -1,5 +1,5 @@
 class Prtea < Formula
-  desc "A TUI for reviewing GitHub pull requests"
+  desc "TUI for reviewing GitHub pull requests"
   homepage "https://github.com/shhac/prtea"
   version "0.6.0"
   license "MIT"

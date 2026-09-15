@@ -1,5 +1,5 @@
 class AgentIncident < Formula
-  desc "incident.io triage CLI for AI agents"
+  desc "Triage CLI for incident.io, built for AI agents"
   homepage "https://github.com/shhac/agent-incident"
   version "0.16.1"
   license "LicenseRef-PolyForm-Perimeter-1.0.0"
