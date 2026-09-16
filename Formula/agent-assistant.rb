@@ -5,23 +5,23 @@ class AgentAssistant < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-assistant/releases/download/v0.4.0/agent-assistant-darwin-arm64.tar.gz"
-      sha256 "c6f73fee045ced0e2596cfa727917a750e3099c9dc6a6d761190a8ccc15c9d79"
+      url "https://github.com/shhac/agent-assistant/releases/download/v0.5.0/agent-assistant-darwin-arm64.tar.gz"
+      sha256 "a8c31259e1c36c7f86ac8a82a90e3778cae1cad60525dbaef608422c7a0a2f2a"
     end
     on_intel do
-      url "https://github.com/shhac/agent-assistant/releases/download/v0.4.0/agent-assistant-darwin-amd64.tar.gz"
-      sha256 "3507a2ee4bc4468b86ccb291a82f1b46bc4270760f61fb45224d6434435c89e7"
+      url "https://github.com/shhac/agent-assistant/releases/download/v0.5.0/agent-assistant-darwin-amd64.tar.gz"
+      sha256 "df16e80712b76aa5229f7f0e3e351b01bddc44d64a71d7f5373a84354d5fb312"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-assistant/releases/download/v0.4.0/agent-assistant-linux-arm64.tar.gz"
-      sha256 "f67b7bc22555d88529c21725cf1c0398ac7d13f9e2f4fdeabb696235dc1744ef"
+      url "https://github.com/shhac/agent-assistant/releases/download/v0.5.0/agent-assistant-linux-arm64.tar.gz"
+      sha256 "f21ee00b6a99d67f061492855e87dc7e6ff3a354f6009085140b5466d02e5ff6"
     end
     on_intel do
-      url "https://github.com/shhac/agent-assistant/releases/download/v0.4.0/agent-assistant-linux-amd64.tar.gz"
-      sha256 "9c9f27f37a875d3eeca20d5e76b217733e1d686bf4e4cc8f0ddde00be375ab9a"
+      url "https://github.com/shhac/agent-assistant/releases/download/v0.5.0/agent-assistant-linux-amd64.tar.gz"
+      sha256 "225ac6e1e04fee88f3556a51db1134e05a73bdd9421591116255937455647134"
     end
   end
 
@@ -32,7 +32,7 @@ class AgentAssistant < Formula
   end
 
   test do
-    assert_match "0.4.0", shell_output("#{bin}/agent-assistant --version")
+    assert_match "0.5.0", shell_output("#{bin}/agent-assistant --version")
     assert_match "A personal assistant that coordinates agents", shell_output("#{bin}/agent-assistant --help")
     assert_match "#compdef agent-assistant", shell_output("#{bin}/agent-assistant completion zsh")
   end
