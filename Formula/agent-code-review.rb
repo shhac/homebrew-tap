@@ -5,23 +5,23 @@ class AgentCodeReview < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-code-review/releases/download/v0.41.0/agent-code-review-darwin-arm64.tar.gz"
-      sha256 "180a45c8dbbffd643d2b18072ee273ed4d034b81714749e7be0ae6d1617b02a3"
+      url "https://github.com/shhac/agent-code-review/releases/download/v0.42.0/agent-code-review-darwin-arm64.tar.gz"
+      sha256 "44a6cd72b2d800aea5c8ae27a8ecbe911593fd3402c89dfdbefe79239cf9adc7"
     end
     on_intel do
-      url "https://github.com/shhac/agent-code-review/releases/download/v0.41.0/agent-code-review-darwin-amd64.tar.gz"
-      sha256 "6f588c3bdb7716fbf0bf1fe820d07266186ab0b8e6a33b1be34f17617a3034ae"
+      url "https://github.com/shhac/agent-code-review/releases/download/v0.42.0/agent-code-review-darwin-amd64.tar.gz"
+      sha256 "528379e1ed4875a77be85f0a93d14693380c52cbc365fae0f28a8d9c29bd4da7"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-code-review/releases/download/v0.41.0/agent-code-review-linux-arm64.tar.gz"
-      sha256 "af22f940ae8794269eca4209f51c36abb3970c049b63dcdf22275024a9915f92"
+      url "https://github.com/shhac/agent-code-review/releases/download/v0.42.0/agent-code-review-linux-arm64.tar.gz"
+      sha256 "1d6b7162399e66d90912795e3a87a50a80f365e2a6de04b438a1e97ebc57a482"
     end
     on_intel do
-      url "https://github.com/shhac/agent-code-review/releases/download/v0.41.0/agent-code-review-linux-amd64.tar.gz"
-      sha256 "1e5c002d8f9dc247fe9b939827d0af08b910ea4349061e6d33dafa40854671c5"
+      url "https://github.com/shhac/agent-code-review/releases/download/v0.42.0/agent-code-review-linux-amd64.tar.gz"
+      sha256 "df82162f9c8b44a19a5f2e353b50a8a94dcd6f7b0bd9c83dc4e196a667be496d"
     end
   end
 
@@ -32,7 +32,7 @@ class AgentCodeReview < Formula
   end
 
   test do
-    assert_match "0.41.0", shell_output("#{bin}/agent-code-review --version")
+    assert_match "0.42.0", shell_output("#{bin}/agent-code-review --version")
     assert_match "PR review queue", shell_output("#{bin}/agent-code-review --help")
     assert_match "#compdef agent-code-review", shell_output("#{bin}/agent-code-review completion zsh")
   end
