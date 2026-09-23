@@ -1,4 +1,5 @@
 {
   "gt2gh": "g2g",
-  "agent-assistant": "crew-assistant"
+  "agent-assistant": "crew-assistant",
+  "agent-code-review": "crew-code-review"
 }
