@@ -5,23 +5,23 @@ class GitWt < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/git-wt/releases/download/v0.14.2/git-wt-darwin-arm64.tar.gz"
-      sha256 "52b1dae3817e409415bb8c1b955637f11a62f3f28ff3f3c7fbefa62e4f0c0e8a"
+      url "https://github.com/shhac/git-wt/releases/download/v0.15.0/git-wt-darwin-arm64.tar.gz"
+      sha256 "3fd40b558353a840607ce68796be15bafb52e8191ae77f696a7726aa61c4e7e1"
     end
     on_intel do
-      url "https://github.com/shhac/git-wt/releases/download/v0.14.2/git-wt-darwin-amd64.tar.gz"
-      sha256 "1c0a8deb5c148bf9e09646efcfd74dcbc234170f0ff7d929c56825c7f658b192"
+      url "https://github.com/shhac/git-wt/releases/download/v0.15.0/git-wt-darwin-amd64.tar.gz"
+      sha256 "0a2120cd21788698726d8ea8a26448071c2ea5a56e5e2df54a2d1b8598749ddf"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/git-wt/releases/download/v0.14.2/git-wt-linux-arm64.tar.gz"
-      sha256 "b983aab2d81b2110d53a1cb8093a57bccc6d6e08e170b82ba0ec9094412be55c"
+      url "https://github.com/shhac/git-wt/releases/download/v0.15.0/git-wt-linux-arm64.tar.gz"
+      sha256 "92543024f1bb9187194ed25ebb13c3bff9c866a291b32012a316510a76d6dee9"
     end
     on_intel do
-      url "https://github.com/shhac/git-wt/releases/download/v0.14.2/git-wt-linux-amd64.tar.gz"
-      sha256 "4b41cf50a1b3d2b8fe770bb8ada6476b6d5f4f9dcad155051679d86fdf3c1126"
+      url "https://github.com/shhac/git-wt/releases/download/v0.15.0/git-wt-linux-amd64.tar.gz"
+      sha256 "863032b853907aa16f731d5bdc7f3f896be8641296b38d1d969615bbfa8983dd"
     end
   end
 
@@ -32,7 +32,7 @@ class GitWt < Formula
   end
 
   test do
-    assert_match "0.14.2", shell_output("#{bin}/git-wt --version")
+    assert_match "0.15.0", shell_output("#{bin}/git-wt --version")
     assert_match "worktree", shell_output("#{bin}/git-wt --help")
     assert_match "#compdef git-wt", shell_output("#{bin}/git-wt completion zsh")
   end
