@@ -5,23 +5,23 @@ class CrewAssistant < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/crew-assistant/releases/download/v0.23.0/crew-assistant-darwin-arm64.tar.gz"
-      sha256 "a1215967e7f04008564d128f6da6bf225a4eb5d9ade8ce273a81fdfa2e1ecc28"
+      url "https://github.com/shhac/crew-assistant/releases/download/v0.23.1/crew-assistant-darwin-arm64.tar.gz"
+      sha256 "e4d94817f9499780e7adb89677317d1b311a8c44bceb00349d3433c7cad1520c"
     end
     on_intel do
-      url "https://github.com/shhac/crew-assistant/releases/download/v0.23.0/crew-assistant-darwin-amd64.tar.gz"
-      sha256 "012be31d9b0ec6783f2ba81e5a80320031bb4d011d26a1917414ae684afb852c"
+      url "https://github.com/shhac/crew-assistant/releases/download/v0.23.1/crew-assistant-darwin-amd64.tar.gz"
+      sha256 "b11d93261e9fa1a0184d6df5c02ecf802a2f16267adfdf7d16bccf22c02295c9"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/crew-assistant/releases/download/v0.23.0/crew-assistant-linux-arm64.tar.gz"
-      sha256 "1124b31b10e5a140c4ff3a252ec0118293e058042e7e1f0a8528b955fa06ab8b"
+      url "https://github.com/shhac/crew-assistant/releases/download/v0.23.1/crew-assistant-linux-arm64.tar.gz"
+      sha256 "0e2931bc95640f9958a7f29665fec12655ef41248e86baa319a6198814a37bc6"
     end
     on_intel do
-      url "https://github.com/shhac/crew-assistant/releases/download/v0.23.0/crew-assistant-linux-amd64.tar.gz"
-      sha256 "04d5b7505c3edcbb3cc4c9934209f4b3cb25f450e1fe3354425472a61a0ae4bd"
+      url "https://github.com/shhac/crew-assistant/releases/download/v0.23.1/crew-assistant-linux-amd64.tar.gz"
+      sha256 "8af76c12199f62a3be2f2d12e10319e3f6ae8ba69d1d1dfe6f0078ff85e15528"
     end
   end
 
@@ -32,7 +32,7 @@ class CrewAssistant < Formula
   end
 
   test do
-    assert_match "0.23.0", shell_output("#{bin}/crew-assistant --version")
+    assert_match "0.23.1", shell_output("#{bin}/crew-assistant --version")
     assert_match "A personal assistant that coordinates agents", shell_output("#{bin}/crew-assistant --help")
     assert_match "#compdef crew-assistant", shell_output("#{bin}/crew-assistant completion zsh")
   end
