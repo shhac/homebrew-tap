@@ -5,23 +5,23 @@ class CrewCodeReview < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/crew-code-review/releases/download/v0.49.1/crew-code-review-darwin-arm64.tar.gz"
-      sha256 "86710c492e59792ba1429bcc496e32df3292829731c653c6353cab94431eebec"
+      url "https://github.com/shhac/crew-code-review/releases/download/v0.49.2/crew-code-review-darwin-arm64.tar.gz"
+      sha256 "ac79746087c60d8053a24599577ab43505fbe677546ae1196fcac4ed6807eefa"
     end
     on_intel do
-      url "https://github.com/shhac/crew-code-review/releases/download/v0.49.1/crew-code-review-darwin-amd64.tar.gz"
-      sha256 "cbebd035c7fb18d8622f7e05a982f9e1d81859aa376265fa7628866e32a411aa"
+      url "https://github.com/shhac/crew-code-review/releases/download/v0.49.2/crew-code-review-darwin-amd64.tar.gz"
+      sha256 "11819f2b6b815d010e7814e21b06f58f7294308c45ef011ba905c922d40c00af"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/crew-code-review/releases/download/v0.49.1/crew-code-review-linux-arm64.tar.gz"
-      sha256 "247021ce5bd7c137d4ad3a24a682186aba25223de9c8001fb8a1962b5fb1edf9"
+      url "https://github.com/shhac/crew-code-review/releases/download/v0.49.2/crew-code-review-linux-arm64.tar.gz"
+      sha256 "4d6d8aed095e8b72b2dd819cc681c72fde9b6313af5f94d18ac5cf79317b392e"
     end
     on_intel do
-      url "https://github.com/shhac/crew-code-review/releases/download/v0.49.1/crew-code-review-linux-amd64.tar.gz"
-      sha256 "620db1c3ae67a77143a453a4eaaa6e419d2cb4eaa1c5fae0ed5cdf09132c7757"
+      url "https://github.com/shhac/crew-code-review/releases/download/v0.49.2/crew-code-review-linux-amd64.tar.gz"
+      sha256 "17193610f86fd6912de1cde7a737d3ee9d9ab0797a845e9385cbb149717a0652"
     end
   end
 
@@ -32,7 +32,7 @@ class CrewCodeReview < Formula
   end
 
   test do
-    assert_match "0.49.1", shell_output("#{bin}/crew-code-review --version")
+    assert_match "0.49.2", shell_output("#{bin}/crew-code-review --version")
     assert_match "PR review queue", shell_output("#{bin}/crew-code-review --help")
     assert_match "#compdef crew-code-review", shell_output("#{bin}/crew-code-review completion zsh")
   end
