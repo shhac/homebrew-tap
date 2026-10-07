@@ -1,4 +1,6 @@
-# Reusable release workflow for the shhac Go CLI family (agent-* + lin).
+# Reusable release workflow for the shhac Go CLIs (agent-*, crew-*, g2g, git-wt,
+# lin). git-hunk and toss are Zig builds that push their formulae from their
+# own release workflows; prtea and the grotto cask are maintained by hand.
 #
 # A CLI repo calls this from its own `.github/workflows/release.yml` on a v* tag
 # push. This workflow (running in the CALLER's context) cross-builds the static
