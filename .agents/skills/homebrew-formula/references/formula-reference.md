@@ -8,8 +8,9 @@
 class ToolName < Formula
   desc "Short description under 80 characters"
   homepage "https://github.com/owner/repo"
-  version "1.0.0"
   license "MIT"
+  # No `version` stanza: Homebrew scans it from the URLs, and an explicit one
+  # that agrees is a `brew audit --strict` offence.
 
   on_macos do
     on_arm do
@@ -152,21 +153,26 @@ end
 
 ## Useful Brew Commands
 
+`brew audit`, `brew test` and `brew install` refuse a formula file path; they
+only work on formulae in a tap. Copy the file into the tapped clone first
+(`cp Formula/<name>.rb "$(brew --repo shhac/tap)/Formula/"`), then use the
+`shhac/tap/<name>` form.
+
 ```bash
-# Validate Ruby syntax and style
+# Validate Ruby syntax and style (works on a path)
 brew style Formula/<name>.rb
 
 # Auto-fix style issues
 brew style --fix Formula/<name>.rb
 
 # Comprehensive audit
-brew audit --strict Formula/<name>.rb
+brew audit --strict shhac/tap/<name>
 
-# Install from local formula
-brew install Formula/<name>.rb
+# Install from the tap
+brew install shhac/tap/<name>
 
 # Run formula tests
-brew test Formula/<name>.rb
+brew test shhac/tap/<name>
 
 # Uninstall for re-testing
 brew uninstall <name>
