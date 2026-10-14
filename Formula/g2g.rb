@@ -5,23 +5,23 @@ class G2g < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/g2g/releases/download/v0.50.0/g2g-darwin-arm64.tar.gz"
-      sha256 "430cd8e6d419d020da7d47e22cc083be65cccab421a22fcf713045be843a4dd0"
+      url "https://github.com/shhac/g2g/releases/download/v0.51.0/g2g-darwin-arm64.tar.gz"
+      sha256 "f7522c54307090b6c7b3458776e1c35eb0a276207d7647eb2ea86bb5cef38059"
     end
     on_intel do
-      url "https://github.com/shhac/g2g/releases/download/v0.50.0/g2g-darwin-amd64.tar.gz"
-      sha256 "b25fe531a1d790662b5b56e88ddfebf639f2cef13b5492beb8a367164677ce6d"
+      url "https://github.com/shhac/g2g/releases/download/v0.51.0/g2g-darwin-amd64.tar.gz"
+      sha256 "e7bcef930a0471fc91291da0dbd842b3667a286429d17939d005818f7ec29f9d"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/g2g/releases/download/v0.50.0/g2g-linux-arm64.tar.gz"
-      sha256 "f9f7a2c0bca5de1ae111f52746e994043de0ed865be3fd3bd44cd3daf93a1f69"
+      url "https://github.com/shhac/g2g/releases/download/v0.51.0/g2g-linux-arm64.tar.gz"
+      sha256 "84a89e55a1bc2cb60283a3bf0bd0be0c7061ccda55d0ecc153be7dd27da54541"
     end
     on_intel do
-      url "https://github.com/shhac/g2g/releases/download/v0.50.0/g2g-linux-amd64.tar.gz"
-      sha256 "f0c8953184da1a7b72d7e3037942526698fe897fde7225313988f444d2081212"
+      url "https://github.com/shhac/g2g/releases/download/v0.51.0/g2g-linux-amd64.tar.gz"
+      sha256 "ef1a231631387ef07de6bd8618ea4e76ca6e94a01aaacf98669e27d30e4bdfd8"
     end
   end
 
@@ -32,7 +32,7 @@ class G2g < Formula
   end
 
   test do
-    assert_match "0.50.0", shell_output("#{bin}/g2g --version")
+    assert_match "0.51.0", shell_output("#{bin}/g2g --version")
     assert_match "Manage stacked branches", shell_output("#{bin}/g2g --help")
     assert_match "#compdef g2g", shell_output("#{bin}/g2g completion zsh")
   end
