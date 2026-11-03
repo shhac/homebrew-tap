@@ -5,23 +5,23 @@ class AgentSlack < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/shhac/agent-slack/releases/download/v0.50.0/agent-slack-darwin-arm64.tar.gz"
-      sha256 "dc200f6f9f6acadcf93364a94f5596dcbccf7dc2eb363592a5d9934964cfc5b3"
+      url "https://github.com/shhac/agent-slack/releases/download/v0.51.0/agent-slack-darwin-arm64.tar.gz"
+      sha256 "843a2bb38548cb8006488c90fac045d1988ce43ed04e5fd655cd5a74bf9481c9"
     end
     on_intel do
-      url "https://github.com/shhac/agent-slack/releases/download/v0.50.0/agent-slack-darwin-amd64.tar.gz"
-      sha256 "82cd2f532fb69b13722a49fd9bc01e96c89e76c1829688a1702d980489f5eeec"
+      url "https://github.com/shhac/agent-slack/releases/download/v0.51.0/agent-slack-darwin-amd64.tar.gz"
+      sha256 "f0ebcdf8bb936b5272a4af1d69247a02d6db35bdcd8f1de1ac83dfdff90562a9"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/shhac/agent-slack/releases/download/v0.50.0/agent-slack-linux-arm64.tar.gz"
-      sha256 "b14806c1b0c97e9facec70c5d8595b6b8d515d404ad756d892647657ac4ad86a"
+      url "https://github.com/shhac/agent-slack/releases/download/v0.51.0/agent-slack-linux-arm64.tar.gz"
+      sha256 "1bcea83c1de36d49d15274523a213e7670d2c93ded9126a09beb8bb5965b07c8"
     end
     on_intel do
-      url "https://github.com/shhac/agent-slack/releases/download/v0.50.0/agent-slack-linux-amd64.tar.gz"
-      sha256 "7c88c693f23a2554e7ce38966fdec374439da0746c8a7f7ce8b49393d26f4ff8"
+      url "https://github.com/shhac/agent-slack/releases/download/v0.51.0/agent-slack-linux-amd64.tar.gz"
+      sha256 "55cf6bf68d3b838fdb4f6cd905a26c922331d0c981b6c6b3df603ca686277602"
     end
   end
 
@@ -32,7 +32,7 @@ class AgentSlack < Formula
   end
 
   test do
-    assert_match "0.50.0", shell_output("#{bin}/agent-slack --version")
+    assert_match "0.51.0", shell_output("#{bin}/agent-slack --version")
     assert_match "Slack CLI for AI agents", shell_output("#{bin}/agent-slack --help")
     assert_match "#compdef agent-slack", shell_output("#{bin}/agent-slack completion zsh")
   end
